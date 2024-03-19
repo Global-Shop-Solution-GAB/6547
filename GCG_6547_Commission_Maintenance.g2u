@@ -1,0 +1,1199 @@
+Program.Sub.ScreenSU.Start
+Gui.ComMaintain..Create
+Gui.ComMaintain..Caption("Commission Maintenance")
+Gui.ComMaintain..Size(7305,7515)
+Gui.ComMaintain..MinX(0)
+Gui.ComMaintain..MinY(0)
+Gui.ComMaintain..Position(0,0)
+Gui.ComMaintain..BackColor(-2147483633)
+Gui.ComMaintain..MaxButton(False)
+Gui.ComMaintain..MousePointer(0)
+Gui.ComMaintain..Sizeable(False)
+Gui.ComMaintain..Event(UnLoad,ComMaintain_UnLoad)
+Gui.ComMaintain.frmControl.Create(Frame)
+Gui.ComMaintain.frmControl.Size(7080,1590)
+Gui.ComMaintain.frmControl.Position(30,120)
+Gui.ComMaintain.frmControl.Anchor(13)
+Gui.ComMaintain.cmdSave.Create(Button)
+Gui.ComMaintain.cmdSave.Size(855,375)
+Gui.ComMaintain.cmdSave.Position(6135,1140)
+Gui.ComMaintain.cmdSave.Parent("frmControl")
+Gui.ComMaintain.cmdSave.Caption("SAVE")
+Gui.ComMaintain.cmdSave.FontStyle(True,False,False,False,False)
+Gui.ComMaintain.cmdSave.Event(Click,cmdSave_Click)
+Gui.ComMaintain.cmdSave.TabStop(True)
+Gui.ComMaintain.cmdSave.TabIndex(12)
+Gui.ComMaintain.cmdDelete.Create(Button)
+Gui.ComMaintain.cmdDelete.Size(855,375)
+Gui.ComMaintain.cmdDelete.Position(7095,1140)
+Gui.ComMaintain.cmdDelete.Parent("frmControl")
+Gui.ComMaintain.cmdDelete.Caption("DELETE")
+Gui.ComMaintain.cmdDelete.FontStyle(True,False,False,False,False)
+Gui.ComMaintain.cmdDelete.Event(Click,cmdDelete_Click)
+Gui.ComMaintain.cmdDelete.TabStop(True)
+Gui.ComMaintain.cmdDelete.TabIndex(4)
+Gui.ComMaintain.cmdDelete.Enabled(False)
+Gui.ComMaintain.cmdDelete.Visible(False)
+Gui.ComMaintain.lblCustName.Create(Label,"Name:",True,1245,255,0,1770,210,True,0,"Arial",8,-2147483633,0)
+Gui.ComMaintain.lblCustName.Parent("frmControl")
+Gui.ComMaintain.lblCustName.FontStyle(True,False,False,False,False)
+Gui.ComMaintain.txtCustName.Create(TextBox,"",True,3465,300,0,1770,465,True,0,"Arial",8,-2147483643,1)
+Gui.ComMaintain.txtCustName.Parent("frmControl")
+Gui.ComMaintain.txtCustName.TabStop(True)
+Gui.ComMaintain.txtCustName.TabIndex(3)
+Gui.ComMaintain.txtCustName.Locked(True)
+Gui.ComMaintain.lblCustID.Create(Label,"Customer:",True,1110,255,0,75,210,True,0,"Arial",8,-2147483633,0)
+Gui.ComMaintain.lblCustID.Parent("frmControl")
+Gui.ComMaintain.lblCustID.FontStyle(True,False,False,False,False)
+Gui.ComMaintain.txtCustID.Create(TextBox,"",True,1140,300,0,75,465,True,2,"Arial",8,-2147483643,1)
+Gui.ComMaintain.txtCustID.Parent("frmControl")
+Gui.ComMaintain.txtCustID.TabStop(True)
+Gui.ComMaintain.txtCustID.TabIndex(2)
+Gui.ComMaintain.txtCustID.MaxLength(6)
+Gui.ComMaintain.txtCustID.Event(LostFocus,txtCustID_LostFocus)
+Gui.ComMaintain.lblDistID.Create(Label,"Distributor/Sales Rep:",True,1950,255,0,75,900,True,0,"Arial",8,-2147483633,0)
+Gui.ComMaintain.lblDistID.Parent("frmControl")
+Gui.ComMaintain.lblDistID.FontStyle(True,False,False,False,False)
+Gui.ComMaintain.cmdCustBrowse.Create(Button)
+Gui.ComMaintain.cmdCustBrowse.Size(375,375)
+Gui.ComMaintain.cmdCustBrowse.Position(1290,420)
+Gui.ComMaintain.cmdCustBrowse.Parent("frmControl")
+Gui.ComMaintain.cmdCustBrowse.TabStop(True)
+Gui.ComMaintain.cmdCustBrowse.TabIndex(1)
+Gui.ComMaintain.cmdCustBrowse.Caption("BROWSE")
+Gui.ComMaintain.cmdCustBrowse.Event(Click,cmdCustBrowse_Click)
+Gui.ComMaintain.lblSalesPerson.Create(Label,"Salesperson:",False,1350,255,0,8055,930,False,0,"Arial",8,-2147483633,0)
+Gui.ComMaintain.lblSalesPerson.Parent("frmControl")
+Gui.ComMaintain.lblSalesPerson.FontStyle(True,False,False,False,False)
+Gui.ComMaintain.txtSPCode.Create(TextBox,"",False,495,300,0,8055,1200,False,2,"Arial",8,-2147483643,1)
+Gui.ComMaintain.txtSPCode.Parent("frmControl")
+Gui.ComMaintain.txtSPCode.TabStop(True)
+Gui.ComMaintain.txtSPCode.TabIndex(9)
+Gui.ComMaintain.txtSPCode.MaxLength(2)
+Gui.ComMaintain.txtSPCode.Event(LostFocus,txtSPCode_LostFocus)
+Gui.ComMaintain.cboSurgeon.Create(ComboBox)
+Gui.ComMaintain.cboSurgeon.Size(1635,330)
+Gui.ComMaintain.cboSurgeon.Position(5355,450)
+Gui.ComMaintain.cboSurgeon.Parent("frmControl")
+Gui.ComMaintain.cboSurgeon.TabStop(True)
+Gui.ComMaintain.cboSurgeon.TabIndex(7)
+Gui.ComMaintain.cmdSPBrowse.Create(Button)
+Gui.ComMaintain.cmdSPBrowse.Size(375,375)
+Gui.ComMaintain.cmdSPBrowse.Position(8640,1170)
+Gui.ComMaintain.cmdSPBrowse.Parent("frmControl")
+Gui.ComMaintain.cmdSPBrowse.TabStop(True)
+Gui.ComMaintain.cmdSPBrowse.TabIndex(8)
+Gui.ComMaintain.cmdSPBrowse.Caption("BROWSE")
+Gui.ComMaintain.cmdSPBrowse.Event(Click,cmdSPBrowse_Click)
+Gui.ComMaintain.cmdSPBrowse.Enabled(False)
+Gui.ComMaintain.cmdSPBrowse.Visible(False)
+Gui.ComMaintain.txtSPName.Create(TextBox,"",False,2910,300,0,9090,1200,False,0,"Arial",8,-2147483643,1)
+Gui.ComMaintain.txtSPName.Parent("frmControl")
+Gui.ComMaintain.txtSPName.TabStop(True)
+Gui.ComMaintain.txtSPName.TabIndex(10)
+Gui.ComMaintain.txtSPName.Locked(True)
+Gui.ComMaintain.lblCustID2.Create(Label,"Surgeon:",True,1110,255,0,5355,210,True,0,"Arial",8,-2147483633,0)
+Gui.ComMaintain.lblCustID2.Parent("frmControl")
+Gui.ComMaintain.lblCustID2.FontStyle(True,False,False,False,False)
+Gui.ComMaintain.lblRate.Create(Label,"Rate:",True,645,255,0,2895,900,True,0,"Arial",8,-2147483633,0)
+Gui.ComMaintain.lblRate.Parent("frmControl")
+Gui.ComMaintain.lblRate.FontStyle(True,False,False,False,False)
+Gui.ComMaintain.txtRate.Create(TextBox,"0.0",True,600,300,0,2895,1170,True,2,"Arial",8,-2147483643,1)
+Gui.ComMaintain.txtRate.Parent("frmControl")
+Gui.ComMaintain.txtRate.TabStop(True)
+Gui.ComMaintain.txtRate.TabIndex(11)
+Gui.ComMaintain.txtRate.NumericOnly(1)
+Gui.ComMaintain.cboDistRep.Create(ComboBox)
+Gui.ComMaintain.cboDistRep.Size(2715,330)
+Gui.ComMaintain.cboDistRep.Position(75,1155)
+Gui.ComMaintain.cboDistRep.Parent("frmControl")
+Gui.ComMaintain.cboDistRep.TabStop(True)
+Gui.ComMaintain.cboDistRep.TabIndex(7)
+Gui.ComMaintain.GsGcComRate.Create(GsGridControl)
+Gui.ComMaintain.GsGcComRate.Size(7080,4875)
+Gui.ComMaintain.GsGcComRate.Position(30,1740)
+Gui.ComMaintain.GsGcComRate.Anchor(14)
+Gui.ComMaintain.GsGcComRate.Event(RowClick,GsGcComRate_RowClick)
+Gui.ComMaintain.GsGcComRate.TabStop(True)
+Gui.ComMaintain.GsGcComRate.TabIndex(13)
+Gui.ComMaintain.GsGcComRate.Event(RowCellClick,GsGcComRate_RowCellClick)
+Gui.ComMaintain.cmdImport.Create(Button)
+Gui.ComMaintain.cmdImport.Size(1320,375)
+Gui.ComMaintain.cmdImport.Position(5790,6660)
+Gui.ComMaintain.cmdImport.TabStop(True)
+Gui.ComMaintain.cmdImport.TabIndex(14)
+Gui.ComMaintain.cmdImport.Caption("IMPORT CSV")
+Gui.ComMaintain.cmdImport.Event(Click,cmdImport_Click)
+Gui.ComMaintain.cmdImport.FontStyle(True,False,False,False,False)
+Gui.ComMaintain.cmdUserM.Create(Button)
+Gui.ComMaintain.cmdUserM.Size(2310,375)
+Gui.ComMaintain.cmdUserM.Position(30,6660)
+Gui.ComMaintain.cmdUserM.Caption("User Field Maintenance")
+Gui.ComMaintain.cmdUserM.FontStyle(True,False,False,False,False)
+Gui.ComMaintain.cmdUserM.Event(Click,cmdUserM_Click)
+Gui.UserMaintain..Create
+Gui.UserMaintain..Caption("User Field Maintenance")
+Gui.UserMaintain..Size(6375,7875)
+Gui.UserMaintain..MinX(0)
+Gui.UserMaintain..MinY(0)
+Gui.UserMaintain..Position(0,0)
+Gui.UserMaintain..AlwaysOnTop(True)
+Gui.UserMaintain..BackColor(-2147483633)
+Gui.UserMaintain..MaxButton(False)
+Gui.UserMaintain..MinButton(False)
+Gui.UserMaintain..MousePointer(0)
+Gui.UserMaintain..Sizeable(False)
+Gui.UserMaintain..Event(UnLoad,Form_UnLoad)
+Gui.UserMaintain.frmControl.Create(Frame)
+Gui.UserMaintain.frmControl.Size(6195,1455)
+Gui.UserMaintain.frmControl.Position(45,30)
+Gui.UserMaintain.lbl1.Create(Label,"Field:",True,645,255,0,75,420,True,0,"Arial",8,-2147483633,0)
+Gui.UserMaintain.lbl1.Parent("frmControl")
+Gui.UserMaintain.lbl1.FontStyle(True,False,False,False,False)
+Gui.UserMaintain.ddlUser.Create(DropDownList)
+Gui.UserMaintain.ddlUser.Size(2385,330)
+Gui.UserMaintain.ddlUser.Position(750,315)
+Gui.UserMaintain.ddlUser.Parent("frmControl")
+Gui.UserMaintain.ddlUser.Event(LostFocus,ddlUser_LostFocus)
+Gui.UserMaintain.txtUser.Create(TextBox,"",True,1935,300,0,750,840,True,0,"Arial",8,-2147483643,1)
+Gui.UserMaintain.txtUser.Parent("frmControl")
+Gui.UserMaintain.cmdBrowse.Create(Button)
+Gui.UserMaintain.cmdBrowse.Size(375,375)
+Gui.UserMaintain.cmdBrowse.Position(2790,810)
+Gui.UserMaintain.cmdBrowse.Parent("frmControl")
+Gui.UserMaintain.cmdBrowse.Caption("BROWSE")
+Gui.UserMaintain.cmdBrowse.Event(Click,cmdBrowse_Click)
+Gui.UserMaintain.txtID.Create(TextBox,"",True,1935,300,0,3270,840,True,0,"Arial",8,-2147483643,1)
+Gui.UserMaintain.txtID.Parent("frmControl")
+Gui.UserMaintain.lbl2.Create(Label,"Value:",True,645,255,0,75,930,True,0,"Arial",8,-2147483633,0)
+Gui.UserMaintain.lbl2.Parent("frmControl")
+Gui.UserMaintain.lbl2.FontStyle(True,False,False,False,False)
+Gui.UserMaintain.GsGcUser.Create(GsGridControl)
+Gui.UserMaintain.GsGcUser.Size(6165,5385)
+Gui.UserMaintain.GsGcUser.Position(60,1545)
+Gui.UserMaintain.GsGcUser.Event(RowClick,GsGcUser_RowClick)
+Gui.UserMaintain.GsGcUser.Event(RowCellClick,GsGcUser_RowCellClick)
+Gui.UserMaintain.cmdUserImport.Create(Button)
+Gui.UserMaintain.cmdUserImport.Size(855,375)
+Gui.UserMaintain.cmdUserImport.Position(5400,6990)
+Gui.UserMaintain.cmdUserImport.Caption("Import")
+Gui.UserMaintain.cmdUserImport.FontStyle(True,False,False,False,False)
+Gui.UserMaintain.cmdUserImport.Event(Click,cmdUserImport_Click)
+Gui.UserMaintain.cmdSaveUser.Create(Button)
+Gui.UserMaintain.cmdSaveUser.Size(855,375)
+Gui.UserMaintain.cmdSaveUser.Position(5310,840)
+Gui.UserMaintain.cmdSaveUser.Caption("Save")
+Gui.UserMaintain.cmdSaveUser.FontStyle(True,False,False,False,False)
+Gui.UserMaintain.cmdSaveUser.Event(Click,cmdSaveUser_Click)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+v.Global.iRateID.Declare
+v.Global.iRateID.Set(0)
+v.Global.iUserID.Declare
+v.Global.iUserID.Set(0)
+v.Global.sType.Declare
+v.Global.sFieldID.Declare
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'Robert Cole 11/17/2021
+'Added/ Changed:
+
+f.Intrinsic.Control.CallSub(dtLoad)
+f.Intrinsic.Control.CallSub(ddlPopulate)
+
+gui.ComMaintain..Visible(true)
+Program.Sub.Main.End
+
+Program.Sub.dtLoad.Start
+'LOAD COMMISSION RATES FROM DATABASE INTO A DATATABLE
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+f.ODBC.Connection!conx.OpenCompanyConnection
+
+f.Intrinsic.Control.If(v.DataTable.dtCRates.Exists,=,True)
+
+	f.Data.DataView.Close("dtCRates","dvCRates")
+	f.Data.DataTable.Close("dtCRates")
+	
+f.Intrinsic.Control.EndIf
+
+f.Data.DataTable.CreateFromSQL("dtCRates","conx","select * from GCG_6547_COMMISSION_RATES",true)
+f.Data.DataTable.AddColumn("dtCRates","DELETE","string")
+
+f.Data.DataView.Create("dtCRates","dvCRates")
+
+f.Intrinsic.Control.CallSub(gvFormat)
+
+f.ODBC.Connection!conx.Close
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.dtLoad.End
+
+Program.Sub.gvFormat.Start
+'FORMAT GRIDVIEW
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.i.Declare
+
+v.Local.i.Set("0")
+
+gui.ComMaintain.GsGcComRate.AddGridviewFromDataview("gvCRates","dtCRates","dvCRates")
+gui.ComMaintain.GsGcComRate.MainView("gvCRates")
+
+gui.ComMaintain.GsGcComRate.Visible(false)
+gui.ComMaintain.GsGcComRate.SuspendLayout
+
+'gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","","Caption","")
+'gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","","HeaderFontBold","TRUE")
+'gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","","HeaderHAlignment","CENTER")
+'gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","","CellHAlignment","CENTER")
+'gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","","MinWidth",)
+'gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","","MaxWidth",)
+'gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","","DisplayCustomNumeric","$###,##0.00")
+'gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","","ReadOnly","TRUE")
+'gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","","AllowEdit","FALSE")
+'gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","","VisibleIndex",v.Local.i)
+'f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","COM_ID","Visible",false)
+
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","CUSTOMER","Caption","Customer")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","CUSTOMER","HeaderFontBold","TRUE")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","CUSTOMER","HeaderHAlignment","CENTER")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","CUSTOMER","CellHAlignment","CENTER")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","CUSTOMER","MinWidth",125)
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","CUSTOMER","ReadOnly","TRUE")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","CUSTOMER","AllowEdit","FALSE")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","CUSTOMER","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","DISTRIBUTOR","Caption","Distributor")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","DISTRIBUTOR","HeaderFontBold","TRUE")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","DISTRIBUTOR","HeaderHAlignment","CENTER")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","DISTRIBUTOR","CellHAlignment","LEFT")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","DISTRIBUTOR","MinWidth",125)
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","DISTRIBUTOR","ReadOnly","TRUE")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","DISTRIBUTOR","AllowEdit","FALSE")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","DISTRIBUTOR","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","SURGEON","Caption","Surgeon")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","SURGEON","HeaderFontBold","TRUE")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","SURGEON","HeaderHAlignment","CENTER")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","SURGEON","CellHAlignment","LEFT")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","SURGEON","MinWidth",125)
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","SURGEON","ReadOnly","TRUE")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","SURGEON","AllowEdit","FALSE")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","SURGEON","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","SALESPERSON","Visible",false)
+'gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","SALESPERSON","Caption","SP")
+'gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","SALESPERSON","HeaderFontBold","TRUE")
+'gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","SALESPERSON","HeaderHAlignment","CENTER")
+'gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","SALESPERSON","CellHAlignment","CENTER")
+'gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","SALESPERSON","MinWidth",45)
+'gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","SALESPERSON","ReadOnly","TRUE")
+'gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","SALESPERSON","AllowEdit","FALSE")
+'gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","SALESPERSON","VisibleIndex",v.Local.i)
+'f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","COM_RATE","Caption","Rate")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","COM_RATE","HeaderFontBold","TRUE")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","COM_RATE","HeaderHAlignment","CENTER")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","COM_RATE","CellHAlignment","RIGHT")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","COM_RATE","MinWidth",85)
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","COM_RATE","DisplayCustomNumeric","##0.00%")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","COM_RATE","ReadOnly","TRUE")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","COM_RATE","AllowEdit","FALSE")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","COM_RATE","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","DELETE","Caption","Del")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","DELETE","HeaderFontBold","TRUE")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","DELETE","HeaderHAlignment","CENTER")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","DELETE","CellHAlignment","CENTER")
+gui.ComMaintain.GsGcComRate.ColumnEdit("gvCRates","DELETE","EditorButton","DEL")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","DELETE","MinWidth",45)
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","DELETE","MaxWidth",45)
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","DELETE","ReadOnly","TRUE")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","DELETE","AllowEdit","FALSE")
+gui.ComMaintain.GsGcComRate.SetColumnProperty("gvCRates","DELETE","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.ComMaintain.GsGcComRate.ResumeLayout
+gui.ComMaintain.GsGcComRate.Visible(true)
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.gvFormat.End
+
+Program.Sub.ComMaintain_UnLoad.Start
+'CLOSE EVERYTHING AND UNLOAD THE DASHBOARD
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+gui.ComMaintain..Visible(false)
+
+f.Intrinsic.Control.End
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.ComMaintain_UnLoad.End
+
+Program.Sub.cmdSave_Click.Start
+'CREATE NEW RECORD FOR RATES NOT IN THE DATABASE AND UPDATE INFORMATION ON EXISTING CODES
+f.Intrinsic.Control.Try
+v.Local.sError.Declare
+
+v.Local.sSQL.Declare
+v.Local.sRet.Declare
+
+f.ODBC.Connection!conx.OpenCompanyConnection
+
+f.Intrinsic.String.Build("select * from GCG_6547_COMMISSION_RATES where COM_ID = '{0}'",v.Global.iRateID,v.Local.sSQL)
+f.ODBC.Connection!conx.ExecuteandReturn(v.Local.sSQL,v.Local.sRet)
+
+f.Intrinsic.Control.If(v.Ambient.ExecuteandReturnEOF.not)
+
+	f.Intrinsic.String.Build("Update GCG_6547_COMMISSION_RATES set CUSTOMER = '{0}', DISTRIBUTOR = '{1}', SURGEON = '{2}', SALESPERSON = '{3}', COM_RATE = '{4}' where COM_ID = '{5}'",v.Screen.ComMaintain!txtCustID.Text,v.Screen.ComMaintain!cboDistRep.Text,v.Screen.ComMaintain!cboSurgeon.Text,v.Screen.ComMaintain!txtSPCode.Text,v.Screen.ComMaintain!txtRate.Text,v.Global.iRateID,v.Local.sSQL)
+	f.ODBC.Connection!conx.Execute(v.Local.sSQL)
+
+f.Intrinsic.Control.Else
+
+	f.Intrinsic.String.Build("INSERT INTO GCG_6547_COMMISSION_RATES (CUSTOMER, DISTRIBUTOR, SURGEON, SALESPERSON, COM_RATE) VALUES ('{0}','{1}','{2}','{3}','{4}')",v.Screen.ComMaintain!txtCustID.Text,v.Screen.ComMaintain!cboDistRep.Text,v.Screen.ComMaintain!cboSurgeon.Text,v.Screen.ComMaintain!txtSPCode.Text,v.Screen.ComMaintain!txtRate.Text,v.Local.sSQL)
+	f.ODBC.Connection!conx.Execute(v.Local.sSQL)
+	
+f.Intrinsic.Control.EndIf
+
+f.ODBC.Connection!conx.Close
+
+'RELOAD DATATABLE AFTER RATE IS ADDED / UPDATED
+f.Intrinsic.Control.CallSub(dtLoad)
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdSave_Click.End
+
+Program.Sub.cmdDelete_Click.Start
+'REMOVE RATE FROM THE DATABASE
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.sRET.Declare
+v.Local.sSQL.Declare
+
+f.ODBC.Connection!conx.OpenCompanyConnection
+
+f.Intrinsic.UI.Msgbox("Are you sure you want to delete this Commission Rate?","WARNING!",4,v.Local.sRET)
+
+f.Intrinsic.Control.If(v.Local.sRET,=,v.Ambient.MsgBoxYes)
+
+	f.Intrinsic.String.Build("DELETE from GCG_6547_COMMISSION_RATES where COM_ID = '{0}'",v.Global.iRateID,v.Local.sSQL)
+	f.ODBC.Connection!conx.Execute(v.Local.sSQL)
+
+f.Intrinsic.Control.EndIf
+
+f.ODBC.Connection!conx.Close
+
+'RELOAD DATATABLE AFTER CODE IS DELETED
+f.Intrinsic.Control.CallSub(dtLoad)
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdDelete_Click.End
+
+Program.Sub.GsGcComRate_RowClick.Start
+'LOAD A RATE FROM THE DATATABLE INTO THE MAINTENANCE FIELDS
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+'f.Intrinsic.Control.BlockEvents
+
+'v.Global.iRateID.Set(v.DataTable.dtCRates(v.Args.RowIndex).COM_ID!FieldVal)
+'gui.ComMaintain.txtCustID.Text(v.DataTable.dtCRates(v.Args.RowIndex).CUSTOMER!FieldValTrim)
+'f.Intrinsic.Control.CallSub(txtCustID_LostFocus)
+'gui.ComMaintain.txtDistID.Text(v.DataTable.dtCRates(v.Args.RowIndex).DISTRIBUTOR!FieldValTrim)
+'f.Intrinsic.Control.CallSub(txtDistID_LostFocus)
+'gui.ComMaintain.cboSurgeon.Text(v.DataTable.dtCRates(v.Args.RowIndex).SURGEON!FieldValTrim)
+'gui.ComMaintain.txtSPCode.Text(v.DataTable.dtCRates(v.Args.RowIndex).SALESPERSON!FieldValTrim)
+'f.Intrinsic.Control.CallSub(txtSPCode_LostFocus)
+'gui.ComMaintain.txtRate.Text(v.DataTable.dtCRates(v.Args.RowIndex).COM_RATE!FieldValTrim)
+
+'f.Intrinsic.Control.UnBlockEvents
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.GsGcComRate_RowClick.End
+
+Program.Sub.GsGcComRate_RowCellClick.Start
+'LOAD A RATE FROM THE DATATABLE INTO THE MAINTENANCE FIELDS
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Global.iRateID.Set(v.DataTable.dtCRates(v.Args.RowIndex).COM_ID!FieldVal)
+
+f.Intrinsic.Control.If(v.Args.Column,=,"DELETE")
+
+	f.Intrinsic.Control.CallSub(cmdClear_Click,"DELETE",True)
+	f.Intrinsic.Control.CallSub(cmdDelete_Click)
+
+f.Intrinsic.Control.Else
+
+	f.Intrinsic.Control.BlockEvents
+	
+	gui.ComMaintain.txtCustID.Text(v.DataTable.dtCRates(v.Args.RowIndex).CUSTOMER!FieldValTrim)
+	f.Intrinsic.Control.CallSub(txtCustID_LostFocus)
+	gui.ComMaintain.cboDistRep.Text(v.DataTable.dtCRates(v.Args.RowIndex).DISTRIBUTOR!FieldValTrim)
+'	f.Intrinsic.Control.CallSub(txtDistID_LostFocus)
+	gui.ComMaintain.cboSurgeon.Text(v.DataTable.dtCRates(v.Args.RowIndex).SURGEON!FieldValTrim)
+	gui.ComMaintain.txtSPCode.Text(v.DataTable.dtCRates(v.Args.RowIndex).SALESPERSON!FieldValTrim)
+	f.Intrinsic.Control.CallSub(txtSPCode_LostFocus)
+	gui.ComMaintain.txtRate.Text(v.DataTable.dtCRates(v.Args.RowIndex).COM_RATE!FieldValTrim)
+	
+	f.Intrinsic.Control.UnBlockEvents
+	
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.GsGcComRate_RowCellClick.End
+
+Program.Sub.cmdImport_Click.Start
+'IMPORT RATES FROM A .CSV TEMPLATE
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.sFile.Declare
+v.Local.sLine.Declare
+v.Local.sData.Declare
+v.Local.sSQL.Declare
+v.Local.sRet.Declare
+v.Local.i.Declare
+
+F.Intrinsic.UI.ShowOpenFileDialog("","","",V.Local.sFile)
+
+F.Intrinsic.Control.If(V.Local.sFile,<>,"***CANCEL***")
+
+	f.ODBC.Connection!conx.OpenCompanyConnection
+	
+	f.Intrinsic.File.File2String(v.Local.sFile,v.Local.sLine)
+	
+	f.Intrinsic.String.Split(v.Local.sLine,v.Ambient.NewLine,v.Local.sLine)	
+	
+	f.Intrinsic.Control.For(v.Local.i,1,v.Local.sLine.UBound,1)
+	
+		f.Intrinsic.String.Split(v.Local.sLine(v.Local.i),",",v.Local.sData)
+		
+		f.Intrinsic.Control.If(v.Local.sData(0),<>,"")
+		
+			f.Intrinsic.String.Build("select * from GCG_6547_COMMISSION_RATES where rtrim(CUSTOMER) = '{0}' and rtrim(DISTRIBUTOR) = '{1}' and rtrim(SURGEON) = '{2}' and rtrim(SALESPERSON) = '{3}'",v.Local.sData(0),v.Local.sData(1),v.Local.sData(2),v.Local.sData(3),v.Local.sSQL)
+			f.ODBC.Connection!conx.ExecuteandReturn(v.local.sSQL,v.Local.sRet)
+			
+			f.Intrinsic.Control.If(v.Ambient.ExecuteandReturnEOF,=,True)
+			
+				f.Intrinsic.String.Build("INSERT INTO GCG_6547_COMMISSION_RATES (CUSTOMER, DISTRIBUTOR, SURGEON, SALESPERSON, COM_RATE) VALUES ('{0}','{1}','{2}','{3}','{4}')",v.Local.sData(0),v.Local.sData(1),v.Local.sData(2),v.Local.sData(3),v.Local.sData(4),v.Local.sSQL)
+				
+				f.ODBC.Connection!conx.Execute(v.Local.sSQL)
+				
+			f.Intrinsic.Control.EndIf
+			
+		f.Intrinsic.Control.EndIf
+		
+	f.Intrinsic.Control.Next(v.Local.i)
+	
+	f.ODBC.Connection!conx.Close
+	
+	f.Intrinsic.Control.CallSub(dtLoad)
+
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdImport_Click.End
+
+Program.Sub.cmdCustBrowse_Click.Start
+'BROWSER TO SELECT CUSTOMER ID
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.sRet.Declare
+
+f.Intrinsic.UI.Browser(205,,v.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	gui.ComMaintain.txtCustID.Text(v.Local.sRet(0))
+	gui.ComMaintain.txtCustName.Text(v.Local.sRet(1))
+	
+F.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdCustBrowse_Click.End
+
+Program.Sub.cmdDistBrowse_Click.Start
+'BROWSER TO SELECT VENDOR (NOT IN USE)
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.sRet.Declare
+
+f.Intrinsic.UI.Browser(300,,v.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	gui.ComMaintain.cboDistRep.Text(v.Local.sRet(0))
+	gui.ComMaintain.txtDistName.Text(v.Local.sRet(1))
+F.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdDistBrowse_Click.End
+
+Program.Sub.cmdSPBrowse_Click.Start
+'BROWSER TO SELECT SALESPERSON (NOT IN USE)
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.sSQL.Declare
+v.Local.sRet.Declare
+v.Local.sTitle.Declare
+v.Local.sWidth.Declare
+
+f.Intrinsic.String.Split("ID*!*NAME","*!*",v.Local.sTitle)
+	f.Intrinsic.String.Split("400*!*2000","*!*",v.Local.sWidth)
+	
+	f.ODBC.Connection!conx.OpenCompanyConnection
+	
+	v.Local.sSQL.Set("select ID, rtrim(NAME) as NAME from V_SALESPERSONS")
+	F.Intrinsic.UI.Browser("Salespersons Browser","conx",v.Local.sSQL,v.Local.sTitle,v.Local.sWidth,v.Local.sRet)
+	
+	f.ODBC.Connection!conx.Close
+	
+	f.Intrinsic.Control.If(v.Local.sRet,<>,"***CANCEL***")
+		
+		f.Intrinsic.String.Split(v.Local.sRet,"*!*",v.Local.sRet)
+		gui.ComMaintain.txtSPCode.Text(v.Local.sRet(0))
+		gui.ComMaintain.txtSPName.Text(v.Local.sRet(1))
+	
+	f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdSPBrowse_Click.End
+
+Program.Sub.txtCustID_LostFocus.Start
+'POPULATE CUSTOMER NAME WHEN MANUALLY ENTERTING IN FIELD
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.sSQL.Declare
+v.Local.sRet.Declare
+
+f.ODBC.Connection!conx.OpenCompanyConnection
+
+f.Intrinsic.String.Build("Select rtrim(NAME_CUSTOMER) as NAME from V_CUSTOMER_MASTER where CUSTOMER = '{0}'",v.Screen.ComMaintain!txtCustID.Text,v.Local.sSQL)
+f.ODBC.Connection!conx.ExecuteandReturn(v.Local.sSQL,v.Local.sRet)
+
+f.ODBC.Connection!conx.Close
+
+f.Intrinsic.Control.If(v.Ambient.ExecuteandReturnEOF.not)
+
+	gui.ComMaintain.txtCustName.Text(v.Local.sRet)
+	
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.txtCustID_LostFocus.End
+
+Program.Sub.txtDistID_LostFocus.Start
+'POPULATE VENDOR NAME WHEN MANUALLY ENTERED (NOT IN USE)
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.sSQL.Declare
+v.Local.sRet.Declare
+
+f.ODBC.Connection!conx.OpenCompanyConnection
+
+f.Intrinsic.String.Build("Select rtrim(NAME_VENDOR) as NAME from V_VENDOR_MASTER where VENDOR = '{0}'",v.Screen.ComMaintain!txtDistID.Text,v.Local.sSQL)
+f.ODBC.Connection!conx.ExecuteandReturn(v.Local.sSQL,v.Local.sRet)
+
+f.ODBC.Connection!conx.Close
+
+f.Intrinsic.Control.If(v.Ambient.ExecuteandReturnEOF.not)
+
+	gui.ComMaintain.txtDistName.Text(v.Local.sRet)
+	
+F.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.txtDistID_LostFocus.End
+
+Program.Sub.txtSPCode_LostFocus.Start
+'POPULATE SALESPERSON NAME WHEN MANUALLY ENTERED (NOT IN USE)
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.sSQL.Declare
+v.Local.sRet.Declare
+
+f.ODBC.Connection!conx.OpenCompanyConnection
+
+f.Intrinsic.String.Build("Select rtrim(NAME) as NAME from V_SALESPERSONS where ID = '{0}'",v.Screen.ComMaintain!txtSPCode.Text,v.Local.sSQL)
+f.ODBC.Connection!conx.ExecuteandReturn(v.Local.sSQL,v.Local.sRet)
+
+f.ODBC.Connection!conx.Close
+
+f.Intrinsic.Control.If(v.Ambient.ExecuteandReturnEOF.not)
+
+	gui.ComMaintain.txtSPName.Text(v.Local.sRet)
+	
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.txtSPCode_LostFocus.End
+
+Program.Sub.cmdClear_Click.Start
+'CLEAR ALL FIELDS AND RESET GLOBAL ID
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+f.Intrinsic.Control.If(v.Args.DELETE.Exists)
+
+	f.Intrinsic.Control.If(v.Args.DELETE,<>,True)
+	
+		v.Global.iRateID.Set(0)
+		
+	f.Intrinsic.Control.EndIf
+	
+f.Intrinsic.Control.EndIf
+	
+gui.ComMaintain.txtCustID.Text("")
+gui.ComMaintain.txtCustName.Text("")
+gui.ComMaintain.cboDistRep.Text("")
+gui.ComMaintain.cboSurgeon.Text("")
+gui.ComMaintain.txtSPCode.Text("")
+gui.ComMaintain.txtSPName.Text("")
+gui.ComMaintain.txtRate.Text("0.0")
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdClear_Click.End
+
+Program.Sub.cmdUserM_Click.Start
+'OPEN USER FIELD MAINTENANCE AND POPULATE DROPDOWNS
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.sSQL.Declare
+
+gui.ComMaintain..Enabled(false)
+
+v.Global.sFieldID.Set(0)
+
+gui.UserMaintain.ddlUser.ClearItems
+gui.UserMaintain.ddlUser.AddItem("USER_1 - Surgeon")
+gui.UserMaintain.ddlUser.AddItem("USER_4 - Distributor")
+gui.UserMaintain.ddlUser.AddItem("USER_4 - Sales Rep")
+gui.UserMaintain.ddlUser.AddItem("USER_4 - Linked")
+gui.UserMaintain.ddlUser.Text("USER_1 - Surgeon")
+
+f.Intrinsic.Control.CallSub(ddlUser_LostFocus)
+
+gui.UserMaintain..Visible(true)
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdUserM_Click.End
+
+Program.Sub.Form_UnLoad.Start
+'UNLOAD THE USER FIELD MAINTENANCE AND UPDATE DROPDOWNS BASED ON NEW FIELDS ENTERED
+gui.ComMaintain..Enabled(true)
+
+f.Intrinsic.Control.CallSub(ddlPopulate)
+
+gui.UserMaintain..Visible(false)
+Program.Sub.Form_UnLoad.End
+
+Program.Sub.GsGcUser_RowCellClick.Start
+'LOAD A USER FIELD FROM THE DATATABLE INTO THE MAINTENANCE FIELDS
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Global.iUserID.Set(v.DataTable.dtUser(v.Args.RowIndex).FIELD_ID!FieldVal)
+
+f.Intrinsic.Control.If(v.Args.Column,=,"DELETE")
+
+	f.Intrinsic.Control.CallSub(cmdUserClear_Click,"DELETE",True)
+	f.Intrinsic.Control.CallSub(cmdUserDelete_Click)
+
+f.Intrinsic.Control.Else
+	
+	gui.UserMaintain.txtUser.Text(v.DataTable.dtUser(v.Args.RowIndex).USER_FIELD!FieldValTrim)
+	gui.UserMaintain.txtID.Text(v.DataTable.dtUser(v.Args.RowIndex).ID_VALUE!FieldValTrim)
+	v.Global.sFieldID.Set(v.DataTable.dtUser(v.Args.RowIndex).FIELD_ID!FieldVal)
+	
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.GsGcUser_RowCellClick.End
+
+Program.Sub.GsGcUser_RowClick.Start
+
+Program.Sub.GsGcUser_RowClick.End
+
+Program.Sub.ddlUser_LostFocus.Start
+'CHANGE THE GRIDVIEW BASED ON WHICH DROPDOWN IS SELECTED
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.sSQL.Declare
+
+f.Intrinsic.Control.SelectCase(v.Screen.UserMaintain!ddlUser.Text)
+
+f.Intrinsic.Control.Case("USER_1 - Surgeon")
+	v.Global.sType.Set("S")
+	gui.UserMaintain.cmdBrowse.Visible(false)
+	gui.UserMaintain.cmdBrowse.Enabled(false)
+	gui.UserMaintain.txtID.Visible(false)
+	gui.UserMaintain.txtID.Enabled(false)
+	
+f.Intrinsic.Control.Case("USER_4 - Distributor")
+	v.Global.sType.Set("D")
+	gui.UserMaintain.cmdBrowse.Visible(true)
+	gui.UserMaintain.cmdBrowse.Enabled(true)
+	gui.UserMaintain.txtID.Visible(true)
+	gui.UserMaintain.txtID.Enabled(true)
+	
+f.Intrinsic.Control.Case("USER_4 - Sales Rep")
+	v.Global.sType.Set("R")
+	gui.UserMaintain.cmdBrowse.Visible(true)
+	gui.UserMaintain.cmdBrowse.Enabled(true)
+	gui.UserMaintain.txtID.Visible(true)
+	gui.UserMaintain.txtID.Enabled(true)
+	
+f.Intrinsic.Control.Case("USER_4 - Linked")
+	v.Global.sType.Set("L")
+	gui.UserMaintain.cmdBrowse.Visible(false)
+	gui.UserMaintain.cmdBrowse.Enabled(false)
+	gui.UserMaintain.txtID.Visible(true)
+	gui.UserMaintain.txtID.Enabled(true)
+
+f.Intrinsic.Control.EndSelect
+
+f.Intrinsic.Control.CallSub(User_Load)
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.ddlUser_LostFocus.End
+
+Program.Sub.User_Format.Start
+'FORMAT THE DIFFERENT GRIDVIEWS FOR THE USER FIELDS
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.i.Declare
+
+v.Local.i.Set(0)
+
+gui.UserMaintain.GsGcUser.AddGridviewFromDataview("gvUser","dtUser","dvUser")
+gui.UserMaintain.GsGcUser.MainView("gvUser")
+
+gui.UserMaintain.GsGcUser.Visible(false)
+gui.UserMaintain.GsGcUser.SuspendLayout
+
+'gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","","Caption","")
+'gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","","HeaderFontBold","TRUE")
+'gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","","HeaderHAlignment","CENTER")
+'gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","","CellHAlignment","CENTER")
+'gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","","MinWidth",)
+'gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","","MaxWidth",)
+'gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","","DisplayCustomNumeric","$###,##0.00")
+'gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","","ReadOnly","TRUE")
+'gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","","AllowEdit","FALSE")
+'gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","","VisibleIndex",v.Local.i)
+'f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","FIELD_ID","Visible",false)
+
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","USER_FIELD","HeaderFontBold","TRUE")
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","USER_FIELD","HeaderHAlignment","CENTER")
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","USER_FIELD","CellHAlignment","LEFT")
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","USER_FIELD","ReadOnly","TRUE")
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","USER_FIELD","AllowEdit","FALSE")
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","USER_FIELD","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","ID_VALUE","HeaderFontBold","TRUE")
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","ID_VALUE","HeaderHAlignment","CENTER")
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","ID_VALUE","CellHAlignment","CENTER")
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","ID_VALUE","ReadOnly","TRUE")
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","ID_VALUE","AllowEdit","FALSE")
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","ID_VALUE","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+f.Intrinsic.Control.SelectCase(v.Global.sType)
+
+f.Intrinsic.Control.Case("S")
+
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","ID_VALUE","Visible",false)
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","USER_FIELD","Caption","Surgeon")
+
+f.Intrinsic.Control.Case("D")
+
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","ID_VALUE","Visible",true)
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","ID_VALUE","Caption","Vendor")
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","USER_FIELD","Caption","Distributor")
+
+f.Intrinsic.Control.Case("R")
+
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","ID_VALUE","Visible",true)
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","ID_VALUE","Caption","Employee")
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","USER_FIELD","Caption","Sales Rep")
+
+f.Intrinsic.Control.Case("R")
+
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","ID_VALUE","Visible",true)
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","ID_VALUE","Caption","Internal Rep")
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","USER_FIELD","Caption","Distributor")
+
+f.Intrinsic.Control.EndSelect
+
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","DELETE","Caption","Del")
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","DELETE","HeaderFontBold","TRUE")
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","DELETE","HeaderHAlignment","CENTER")
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","DELETE","CellHAlignment","CENTER")
+gui.UserMaintain.GsGcUser.ColumnEdit("gvUser","DELETE","EditorButton","DEL")
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","DELETE","MinWidth",45)
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","DELETE","MaxWidth",45)
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","DELETE","ReadOnly","TRUE")
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","DELETE","AllowEdit","FALSE")
+gui.UserMaintain.GsGcUser.SetColumnProperty("gvUser","DELETE","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.UserMaintain.GsGcUser.ResumeLayout
+gui.UserMaintain.GsGcUser.Visible(true)
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.User_Format.End
+
+Program.Sub.cmdSaveUser_Click.Start
+'SAVE USER FIELDS BACK TO THE CUSTOM TABLE
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.sSQL.Declare
+v.Local.sRet.Declare
+
+f.ODBC.Connection!conx.OpenCompanyConnection
+
+f.Intrinsic.String.Build("Select * from GCG_6547_USER_FIELDS where FIELD_ID = '{0}'",v.Global.sFieldID,v.Local.sSQL)
+f.ODBC.Connection!conx.ExecuteandReturn(v.Local.sSQL,v.Local.sRet)
+
+f.Intrinsic.Control.If(v.Ambient.ExecuteandReturnEOF.not)
+	f.Intrinsic.String.Build("Update GCG_6547_USER_FIELDS set USER_FIELD = '{0}', ID_VALUE = '{1}' where FIELD_ID = '{2}'",v.Screen.UserMaintain!txtUser.Text,v.Screen.UserMaintain!txtID.Text,v.Global.sFieldID,v.Local.sSQL)
+	f.ODBC.Connection!conx.Execute(v.Local.sSQL)
+f.Intrinsic.Control.Else
+	f.Intrinsic.String.Build("INSERT INTO GCG_6547_USER_FIELDS (USER_FIELD, ID_VALUE, ID_TYPE) VALUES ('{0}', '{1}', '{2}')",v.Screen.UserMaintain!txtUser.Text,v.Screen.UserMaintain!txtID.Text,v.Global.sType,v.Local.sSQL)
+	f.ODBC.Connection!conx.Execute(v.Local.sSQL)
+f.Intrinsic.Control.EndIf
+
+f.ODBC.Connection!conx.Close
+
+f.Intrinsic.Control.CallSub(cmdUserClear_Click)
+
+f.Intrinsic.Control.CallSub(ddlUser_LostFocus)
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdSaveUser_Click.End
+
+Program.Sub.cmdBrowse_Click.Start
+'OPEN DIFFERENT BROWSERS DEPENDING ON WHICH USER FIELD IS SELECTED.
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.sRet.Declare
+
+f.Intrinsic.Control.SelectCase(v.Screen.UserMaintain!ddlUser.Text)
+
+f.Intrinsic.Control.Case("USER_4 - Distributor")
+
+f.Intrinsic.UI.Browser(300,,v.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	gui.UserMaintain.txtID.Text(v.Local.sRet(0))
+F.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.Case("USER_4 - Sales Rep")
+
+f.Intrinsic.UI.Browser(50,,v.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	gui.UserMaintain.txtID.Text(v.Local.sRet(0))
+F.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.EndSelect
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdBrowse_Click.End
+
+Program.Sub.ddlPopulate.Start
+'GENERATE DROPDOWN LIST(S) FOR DDL
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+gui.ComMaintain.cboSurgeon.ClearItems
+gui.ComMaintain.cboDistRep.ClearItems
+
+gui.ComMaintain.cboSurgeon.AddItem("")
+gui.ComMaintain.cboDistRep.AddItem("")
+
+f.ODBC.Connection!conx.OpenCompanyConnection
+
+f.ODBC.Connection!conx.OpenLocalRecordsetRO("DDL","select rtrim(USER_FIELD) as USER_FIELD from GCG_6547_USER_FIELDS where ID_TYPE = 'S'")
+f.Intrinsic.Control.DoUntil(v.ODBC.conx!DDL.EOF,=,true)
+	gui.ComMaintain.cboSurgeon.AddItem(v.ODBC.conx!DDL.FieldValTrim!USER_FIELD)
+	f.ODBC.conx!DDL.MoveNext
+f.Intrinsic.Control.Loop
+f.ODBC.conx!DDL.Close
+
+f.ODBC.Connection!conx.OpenLocalRecordsetRO("DDL","select rtrim(USER_FIELD) as USER_FIELD from GCG_6547_USER_FIELDS where ID_TYPE = 'D' or ID_TYPE = 'R'")
+f.Intrinsic.Control.DoUntil(v.ODBC.conx!DDL.EOF,=,true)
+	gui.ComMaintain.cboDistRep.AddItem(v.ODBC.conx!DDL.FieldValTrim!USER_FIELD)
+	f.ODBC.conx!DDL.MoveNext
+f.Intrinsic.Control.Loop
+f.ODBC.conx!DDL.Close
+
+f.ODBC.Connection!conx.Close
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.ddlPopulate.End
+
+Program.Sub.cmdUserImport_Click.Start
+'IMPORT USER FIELDS FROM A .CSV TEMPLATE
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.sFile.Declare
+v.Local.sLine.Declare
+v.Local.sData.Declare
+v.Local.sSQL.Declare
+v.Local.sRet.Declare
+v.Local.i.Declare
+
+F.Intrinsic.UI.ShowOpenFileDialog("","","",V.Local.sFile)
+
+F.Intrinsic.Control.If(V.Local.sFile,<>,"***CANCEL***")
+
+	f.ODBC.Connection!conx.OpenCompanyConnection
+	
+	f.Intrinsic.File.File2String(v.Local.sFile,v.Local.sLine)
+	
+	f.Intrinsic.String.Split(v.Local.sLine,v.Ambient.NewLine,v.Local.sLine)	
+	
+	f.Intrinsic.Control.For(v.Local.i,1,v.Local.sLine.UBound,1)
+	
+		f.Intrinsic.String.Split(v.Local.sLine(v.Local.i),",",v.Local.sData)
+		
+		f.Intrinsic.Control.If(v.Local.sData(0),<>,"")
+		
+			f.Intrinsic.String.Build("select * from GCG_6547_USER_FIELDS where rtrim(USER_FIELD) = '{0}' and rtrim(ID_VALUE) = '{1}' and ID_TYPE = '{2}'",v.Local.sData(0),v.Local.sData(1),v.Local.sData(2),v.Local.sSQL)
+			f.ODBC.Connection!conx.ExecuteandReturn(v.local.sSQL,v.Local.sRet)
+			
+			f.Intrinsic.Control.If(v.Ambient.ExecuteandReturnEOF,=,True)
+			
+				f.Intrinsic.String.Build("INSERT INTO GCG_6547_USER_FIELDS (USER_FIELD, ID_VALUE, ID_TYPE) VALUES ('{0}','{1}','{2}')",v.Local.sData(0),v.Local.sData(1),v.Local.sData(2),v.Local.sSQL)
+				f.ODBC.Connection!conx.Execute(v.Local.sSQL)
+				
+			f.Intrinsic.Control.EndIf
+			
+		f.Intrinsic.Control.EndIf
+		
+	f.Intrinsic.Control.Next(v.Local.i)
+	
+	f.ODBC.Connection!conx.Close
+	
+	f.Intrinsic.Control.CallSub(User_Load)
+
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdUserImport_Click.End
+
+Program.Sub.cmdUserClear_Click.Start
+'CLEAR USER FIELDS AND RESET GLOBAL ID IF FIELD WAS DELETED.
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+f.Intrinsic.Control.If(v.Args.DELETE.Exists)
+
+	f.Intrinsic.Control.If(v.Args.DELETE,<>,True)
+	
+		v.Global.iUserID.Set(0)
+		
+	f.Intrinsic.Control.EndIf
+	
+f.Intrinsic.Control.EndIf
+	
+gui.UserMaintain.txtUser.Text("")
+gui.UserMaintain.txtID.Text("")
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdUserClear_Click.End
+
+Program.Sub.cmdUserDelete_Click.Start
+'REMOVE USER FIELD FROM THE DATABASE
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.sRET.Declare
+v.Local.sSQL.Declare
+
+f.ODBC.Connection!conx.OpenCompanyConnection
+
+f.Intrinsic.UI.Msgbox("Are you sure you want to delete this entry?","WARNING!",4,v.Local.sRET)
+
+f.Intrinsic.Control.If(v.Local.sRET,=,v.Ambient.MsgBoxYes)
+
+	f.Intrinsic.String.Build("DELETE from GCG_6547_USER_FIELDS where FIELD_ID = '{0}'",v.Global.iUserID,v.Local.sSQL)
+	f.ODBC.Connection!conx.Execute(v.Local.sSQL)
+
+f.Intrinsic.Control.EndIf
+
+f.ODBC.Connection!conx.Close
+
+'RELOAD DATATABLE AFTER USER FIELD IS DELETED
+f.Intrinsic.Control.CallSub(User_Load)
+	
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdUserDelete_Click.End
+
+
+Program.Sub.User_Load.Start
+'LOAD DATA FOR ALL SAVED USER FIELD ENTRIES.
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.sRET.Declare
+v.Local.sSQL.Declare
+
+f.Intrinsic.Control.If(v.DataTable.dtUser.Exists,=,True)
+
+	f.Data.DataView.Close("dtUser","dvUser")
+	f.Data.DataTable.Close("dtUser")
+	
+f.Intrinsic.Control.EndIf
+
+f.ODBC.Connection!conx.OpenCompanyConnection
+
+f.Intrinsic.String.Build("Select FIELD_ID, rtrim(USER_FIELD) as USER_FIELD, rtrim(ID_VALUE) as ID_VALUE from GCG_6547_USER_FIELDS where ID_TYPE = '{0}'",v.Global.sType,v.Local.sSQL)
+f.Data.DataTable.CreateFromSQL("dtUser","conx",v.Local.sSQL,true)
+f.Data.DataTable.AddColumn("dtUser","DELETE","string")
+f.Data.DataView.Create("dtUser","dvUser",22)
+
+f.ODBC.Connection!conx.Close
+
+f.Intrinsic.Control.CallSub(User_Format)
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.User_Load.End
