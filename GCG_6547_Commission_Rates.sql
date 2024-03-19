@@ -1,0 +1,14 @@
+-- Database: GLOBALPLA Metadata version: 2 Exported: Dec 7, 2021
+-- Begin Tables
+SET LEGACYTYPESALLOWED = ON;
+-- Begin Multi-Line Statement
+CREATE TABLE "GCG_6547_Commission_Rates" USING 'GCG_6547_Commission_Rates.mkd' PAGESIZE=4096 (
+ "COM_ID" BIGIDENTITY DEFAULT '0' CONSTRAINT "UK_COM_ID" UNIQUE USING 0,
+ "CUSTOMER" CHAR(6),
+ "DISTRIBUTOR" CHAR(50),
+ "SURGEON" CHAR(50),
+ "SALESPERSON" CHAR(2),
+ "COM_RATE" DOUBLE );
+-- End Multi-Line Statement
+SET LEGACYTYPESALLOWED = OFF;
+-- End Tables
