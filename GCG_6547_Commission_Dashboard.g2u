@@ -1,0 +1,1995 @@
+Program.Sub.ScreenSU.Start
+Gui.dbSAC..Create
+Gui.dbSAC..Caption("Sales Order Analysis and Commissions Dashboard")
+Gui.dbSAC..Size(20640,10695)
+Gui.dbSAC..MinX(0)
+Gui.dbSAC..MinY(0)
+Gui.dbSAC..Position(0,0)
+Gui.dbSAC..BackColor(-2147483633)
+Gui.dbSAC..MousePointer(0)
+Gui.dbSAC..Event(UnLoad,dbSAC_UnLoad)
+Gui.dbSAC.cmdREFRESH.Create(Button)
+Gui.dbSAC.cmdREFRESH.Size(450,375)
+Gui.dbSAC.cmdREFRESH.Position(19860,90)
+Gui.dbSAC.cmdREFRESH.Caption("REFRESH")
+Gui.dbSAC.cmdREFRESH.Event(Click,cmdREFRESH_Click)
+Gui.dbSAC.cmdREFRESH.Anchor(9)
+Gui.dbSAC.cmdREFRESH.TabStop(True)
+Gui.dbSAC.cmdREFRESH.TabIndex(7)
+Gui.dbSAC.lblSDate.Create(Label,"Starting Sales Date:",True,1800,255,0,90,360,True,0,"Arial",8,-2147483633,0)
+Gui.dbSAC.lblSDate.FontStyle(True,False,False,False,False)
+Gui.dbSAC.lblEDate.Create(Label,"Ending Sales Date:",True,1665,255,0,3900,360,True,0,"Arial",8,-2147483633,0)
+Gui.dbSAC.lblEDate.FontStyle(True,False,False,False,False)
+Gui.dbSAC.dtpSDate.Create(DatePicker)
+Gui.dbSAC.dtpSDate.Size(1935,285)
+Gui.dbSAC.dtpSDate.Position(1890,270)
+Gui.dbSAC.dtpSDate.TabStop(True)
+Gui.dbSAC.dtpSDate.TabIndex(1)
+Gui.dbSAC.dtpEDate.Create(DatePicker)
+Gui.dbSAC.dtpEDate.Size(1935,285)
+Gui.dbSAC.dtpEDate.Position(5580,270)
+Gui.dbSAC.dtpEDate.TabStop(True)
+Gui.dbSAC.dtpEDate.TabIndex(2)
+Gui.dbSAC.cmdExport.Create(Button)
+Gui.dbSAC.cmdExport.Size(855,375)
+Gui.dbSAC.cmdExport.Position(18945,90)
+Gui.dbSAC.cmdExport.Anchor(9)
+Gui.dbSAC.cmdExport.Caption("EXPORT")
+Gui.dbSAC.cmdExport.FontStyle(True,False,False,False,False)
+Gui.dbSAC.cmdExport.Event(Click,cmdExport_Click)
+Gui.dbSAC.cmdExport.TabStop(True)
+Gui.dbSAC.cmdExport.TabIndex(6)
+Gui.dbSAC.lblSDate2.Create(Label,"Salesperson:",False,1245,255,0,7605,360,False,0,"Arial",8,-2147483633,0)
+Gui.dbSAC.lblSDate2.FontStyle(True,False,False,False,False)
+Gui.dbSAC.ddlSP.Create(DropDownList)
+Gui.dbSAC.ddlSP.Size(705,330)
+Gui.dbSAC.ddlSP.Position(8880,255)
+Gui.dbSAC.ddlSP.TabStop(True)
+Gui.dbSAC.ddlSP.TabIndex(3)
+Gui.dbSAC.ddlSP.Event(LostFocus,ddlSP_LostFocus)
+Gui.dbSAC.ddlSP.Enabled(False)
+Gui.dbSAC.ddlSP.Visible(False)
+Gui.dbSAC.txtSP.Create(TextBox,"",False,2805,300,0,9690,270,False,0,"Arial",8,-2147483643,1)
+Gui.dbSAC.txtSP.TabStop(True)
+Gui.dbSAC.txtSP.TabIndex(4)
+Gui.dbSAC.txtSP.Locked(True)
+Gui.dbSAC.chkDist.Create(CheckBox)
+Gui.dbSAC.chkDist.Size(1560,360)
+Gui.dbSAC.chkDist.Position(12615,60)
+Gui.dbSAC.chkDist.Caption("Distributor")
+Gui.dbSAC.chkDist.FontStyle(True,False,False,False,False)
+Gui.dbSAC.chkDist.Event(Click,chkDist_Click)
+Gui.dbSAC.chkRep.Create(CheckBox)
+Gui.dbSAC.chkRep.Size(1560,360)
+Gui.dbSAC.chkRep.Position(12615,435)
+Gui.dbSAC.chkRep.Caption("Sales Rep")
+Gui.dbSAC.chkRep.FontStyle(True,False,False,False,False)
+Gui.dbSAC.chkRep.Event(Click,chkRep_Click)
+Gui.dbSAC.tabSales.Create(Tab)
+Gui.dbSAC.tabSales.Size(20250,9345)
+Gui.dbSAC.tabSales.Position(75,855)
+Gui.dbSAC.tabSales.Event(Click,tabSales_Click)
+Gui.dbSAC.tabSales.Tabs(3)
+Gui.dbSAC.tabSales.SetTab(0)
+Gui.dbSAC.tabSales.Caption("Distributors")
+Gui.dbSAC.tabSales.SetTab(1)
+Gui.dbSAC.tabSales.Caption("Salespersons")
+Gui.dbSAC.tabSales.SetTab(2)
+Gui.dbSAC.tabSales.Caption("No Commissions")
+Gui.dbSAC.GsGcSalesDist.Create(GsGridControl)
+Gui.dbSAC.GsGcSalesDist.Size(20085,8910)
+Gui.dbSAC.GsGcSalesDist.Position(0,0)
+Gui.dbSAC.GsGcSalesDist.Anchor(15)
+Gui.dbSAC.GsGcSalesDist.Event(RowCellClick,GsGcSalesDist_RowCellClick)
+Gui.dbSAC.GsGcSalesDist.Event(CellValueChanged,GsGcSalesDist_CellValueChanged)
+Gui.dbSAC.GsGcSalesDist.TabStop(True)
+Gui.dbSAC.GsGcSalesDist.TabIndex(5)
+Gui.dbSAC.GsGcSalesDist.Parent("tabSales",0)
+Gui.dbSAC.GsGcSalesSP.Create(GsGridControl)
+Gui.dbSAC.GsGcSalesSP.Size(20085,8910)
+Gui.dbSAC.GsGcSalesSP.Position(0,0)
+Gui.dbSAC.GsGcSalesSP.Parent("tabSales",1)
+Gui.dbSAC.GsGcSalesSP.TabStop(True)
+Gui.dbSAC.GsGcSalesSP.TabIndex(5)
+Gui.dbSAC.GsGcSalesSP.Anchor(15)
+Gui.dbSAC.GsGcSalesSP.Event(RowCellClick,GsGcSalesSP_RowCellClick)
+Gui.dbSAC.GsGcSalesSP.Event(CellValueChanged,GsGcSalesSP_CellValueChanged)
+Gui.dbSAC.GsGcSalesNoCom.Create(GsGridControl)
+Gui.dbSAC.GsGcSalesNoCom.Size(20085,8910)
+Gui.dbSAC.GsGcSalesNoCom.Position(0,0)
+Gui.dbSAC.GsGcSalesNoCom.Parent("tabSales",2)
+Gui.dbSAC.GsGcSalesNoCom.TabStop(True)
+Gui.dbSAC.GsGcSalesNoCom.TabIndex(5)
+Gui.dbSAC.GsGcSalesNoCom.Anchor(15)
+Gui.dbSAC.GsGcSalesNoCom.Event(CellValueChanged,GsGcSalesNoCom_CellValueChanged)
+Gui.dbSAC.cmdSave.Create(Button)
+Gui.dbSAC.cmdSave.Size(855,375)
+Gui.dbSAC.cmdSave.Position(18030,90)
+Gui.dbSAC.cmdSave.TabStop(True)
+Gui.dbSAC.cmdSave.TabIndex(6)
+Gui.dbSAC.cmdSave.Anchor(9)
+Gui.dbSAC.cmdSave.Caption("SAVE")
+Gui.dbSAC.cmdSave.Event(Click,cmdSave_Click)
+Gui.dbSAC.cmdSave.FontStyle(True,False,False,False,False)
+Gui.FieldSelect..Create
+Gui.FieldSelect..Caption("User Field Select")
+Gui.FieldSelect..Size(4065,1005)
+Gui.FieldSelect..MinX(0)
+Gui.FieldSelect..MinY(0)
+Gui.FieldSelect..Position(0,0)
+Gui.FieldSelect..AlwaysOnTop(True)
+Gui.FieldSelect..BackColor(-2147483633)
+Gui.FieldSelect..MaxButton(False)
+Gui.FieldSelect..MinButton(False)
+Gui.FieldSelect..MousePointer(0)
+Gui.FieldSelect..Moveable(False)
+Gui.FieldSelect..Sizeable(False)
+Gui.FieldSelect..Event(UnLoad,FieldSelect_UnLoad)
+Gui.FieldSelect.ddlUser.Create(DropDownList)
+Gui.FieldSelect.ddlUser.Size(2220,330)
+Gui.FieldSelect.ddlUser.Position(720,120)
+Gui.FieldSelect.lblValue.Create(Label,"Value:",True,675,255,0,90,210,True,0,"Arial",8,-2147483633,0)
+Gui.FieldSelect.lblValue.FontStyle(True,False,False,False,False)
+Gui.FieldSelect.cmdOk.Create(Button)
+Gui.FieldSelect.cmdOk.Size(855,375)
+Gui.FieldSelect.cmdOk.Position(3015,90)
+Gui.FieldSelect.cmdOk.Caption("OK")
+Gui.FieldSelect.cmdOk.FontStyle(True,False,False,False,False)
+Gui.FieldSelect.cmdOk.Event(Click,cmdOk_Click)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+v.Global.sGVR.Declare
+v.Global.sRptType.Declare
+v.Global.sRptCat.Declare
+v.Global.sProcFolder.Declare
+v.Global.sProcFile.Declare
+v.Global.sFile.Declare
+v.Global.iIndex.Declare
+v.Global.sDDL.Declare
+Variable.UDT.uUpload.Define("Vendor",String)
+Variable.UDT.uUpload.Define("Invoice",String)
+Variable.UDT.uUpload.Define("GL",String)
+Variable.UDT.uUpload.Define("InvoiceDate",String)
+Variable.UDT.uUpload.Define("InvoiceAmt",String)
+Variable.UDT.uUpload.Define("InvoiceDDate",String)
+Variable.UDT.uUpload.Define("WO",String)
+Variable.UDT.uUpload.Define("Sfx",String)
+Variable.UDT.uUpload.Define("Seq",String)
+Variable.UDT.uUpload.Define("Column31",String)
+Variable.uGlobal.uUpload.Declare("uUpload")
+Variable.Global.BatchDate.Declare(String)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'Robert Cole 11/29/2021
+'Added/ Changed:
+
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.dSDate.Declare
+v.Local.dEDate.Declare
+
+f.Intrinsic.Control.CallSub(BI_Check)
+f.Intrinsic.Control.CallSub(Directory_Check)
+
+'POPULATE DATEPICKERS FOR THE START AND END OF THE WEEK PRIOR
+f.Intrinsic.Date.DateAdd("d",-7,v.Ambient.Date,v.Local.dSDate)
+f.Intrinsic.Date.BeginningOfWeek(v.Local.dSDate,v.Local.dSDate)
+gui.dbSAC.dtpSDate.Value(v.Local.dSDate)
+'gui.dbSAC.dtpSDate.Value("1/1/1900")
+f.Intrinsic.Date.DateAdd("d",-7,v.Ambient.Date,v.Local.dEDate)
+f.Intrinsic.Date.EndOfWeek(v.Local.dEDate,v.Local.dEDate)
+gui.dbSAC.dtpEDate.Value(v.Local.dEDate)
+
+f.Intrinsic.Control.CallSub(SetContextMenus)
+
+f.Intrinsic.Control.CallSub(ddlPopulate)
+gui.dbSAC.ddlSP.Text("ALL")
+gui.dbSAC.txtSP.Text("All Salespersons")
+
+f.Intrinsic.Control.CallSub(dtLoad)
+
+gui.dbSAC.chkDist.Value(1)
+v.Global.sRptCat.Set("D")
+'gui.dbSAC..ContextMenuAddItem("ctxSales","Create AP Batch",0,"Create AP Batch")
+
+f.Intrinsic.Control.CallSub(gvFormat)
+
+gui.dbSAC.tabSales.SetTab(0)
+
+gui.dbSAC..Visible(true)
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.dtLoad.Start
+'LOADS DATA INTO THE SALES DATATABLE
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.sSQL.Declare
+v.Local.sSQLRet.Declare
+v.Local.sRet.Declare
+v.Local.dSDateP.Declare
+v.Local.dEDateP.Declare
+
+v.Local.dSDateP.Set(v.Screen.dbSAC!dtpSDate.Value)
+v.Local.dEDateP.Set(v.Screen.dbSAC!dtpEDate.Value)
+
+f.ODBC.Connection!conx.OpenCompanyConnection
+
+f.Intrinsic.String.Build("Select * from GCG_6547_COMM_BI WHERE USER_ID = '{0}' and TERMINAL = '{1}'",v.Caller.User,v.Caller.Terminal,v.Local.sSQL)
+f.ODBC.Connection!conx.ExecuteandReturn(v.Local.sSQL,v.Local.sSQLRet)
+
+f.Intrinsic.Control.If(v.Ambient.ExecuteandReturnEOF.not)
+
+	f.Intrinsic.UI.Msgbox("A previous commission run exists.  Do you want to continue from the previous run?","WARNING!",4,v.Local.sRET)
+	
+	f.Intrinsic.Control.If(v.Local.sRET,=,v.Ambient.MsgBoxYes)
+	
+		f.Intrinsic.String.Build("Select INVOICE, ORDER_NO, ORDER_LINE, rtrim(H_USER_1) as H_USER_1, rtrim(H_USER_2) as H_USER_2, rtrim(H_USER_3) as H_USER_3, rtrim(H_USER_4) as H_USER_4, rtrim(SALESPERSON) as SALESPERSON, rtrim(CUSTOMER) as CUSTOMER, rtrim(NAME_CUSTOMER) as NAME_CUSTOMER, rtrim(' ') as L_USER_1, CUSTOMER_PO, DATE_ORDER, DATE_INVOICE, rtrim(PART) as PART, rtrim(DESCRIPTION) as DESCRIPTION, QTY_SHIPPED, PRICE, EXTENSION, rtrim(COM_ID) as COM_ID, rtrim(COM_TYPE) as COM_TYPE from GCG_6547_COMM_BI where USER_ID = '{0}' and TERMINAL = '{1}'",v.Caller.User,v.Caller.Terminal,v.Local.sSQL)
+	
+	f.Intrinsic.Control.Else
+	
+		f.Intrinsic.String.Build("Delete from GCG_6547_COMM_BI where USER_ID = '{0}' and TERMINAL = '{1}'",v.Caller.User,v.Caller.Terminal,v.Local.sSQL)
+		f.ODBC.Connection!conx.Execute(v.Local.sSQL)
+		f.Intrinsic.string.Build("Select distinct y.INVOICE, y.ORDER_NO, y.ORDER_LINE, rtrim(x.USER_1) as H_USER_1, rtrim(x.USER_3) as H_USER_3, rtrim(y.CUSTOMER) as CUSTOMER, rtrim(x.NAME_CUSTOMER) as NAME_CUSTOMER, rtrim(y.USER_1) as L_USER_1, rtrim(x.USER_2) as H_USER_2, rtrim(x.USER_4) as H_USER_4, y.CUSTOMER_PO, y.DATE_ORDER, y.DATE_INVOICE, rtrim(y.SALESPERSON) as SALESPERSON, rtrim(y.PART) as PART, rtrim(y.DESCRIPTION) as DESCRIPTION, y.QTY_SHIPPED, y.PRICE, y.EXTENSION, rtrim(z.ID_VALUE) as COM_ID, rtrim(z.ID_TYPE) as COM_TYPE from V_ORDER_HIST_HEAD as x left join V_ORDER_HIST_LINE as y on y.ORDER_NO = x.ORDER_NO right join GCG_6547_USER_FIELDS as z on x.USER_4 = z.USER_FIELD where y.DATE_INVOICE >= '{0}' and y.DATE_INVOICE <= '{1}'",v.Local.dSDateP.PervasiveDate,v.Local.dEDateP.PervasiveDate,v.Local.sSQL)
+
+	f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.Else
+
+	f.Intrinsic.string.Build("Select distinct y.INVOICE, y.ORDER_NO, y.ORDER_LINE, rtrim(x.USER_1) as H_USER_1, rtrim(x.USER_3) as H_USER_3, rtrim(y.CUSTOMER) as CUSTOMER, rtrim(x.NAME_CUSTOMER) as NAME_CUSTOMER, rtrim(y.USER_1) as L_USER_1, rtrim(x.USER_2) as H_USER_2, rtrim(x.USER_4) as H_USER_4, y.CUSTOMER_PO, y.DATE_ORDER, y.DATE_INVOICE, rtrim(y.SALESPERSON) as SALESPERSON, rtrim(y.PART) as PART, rtrim(y.DESCRIPTION) as DESCRIPTION, y.QTY_SHIPPED, y.PRICE, y.EXTENSION, rtrim(z.ID_VALUE) as COM_ID, rtrim(z.ID_TYPE) as COM_TYPE from V_ORDER_HIST_HEAD as x left join V_ORDER_HIST_LINE as y on y.ORDER_NO = x.ORDER_NO right join GCG_6547_USER_FIELDS as z on x.USER_4 = z.USER_FIELD where y.DATE_INVOICE >= '{0}' and y.DATE_INVOICE <= '{1}'",v.Local.dSDateP.PervasiveDate,v.Local.dEDateP.PervasiveDate,v.Local.sSQL)
+
+f.Intrinsic.Control.EndIf
+
+f.Data.DataTable.CreateFromSQL("dtSalesAll","conx",v.Local.sSQL,true)
+
+f.ODBC.Connection!conx.Close
+
+'f.Data.DataTable.AddExpressionColumn("dtSalesAll","RATE_KEY","string","CUSTOMER+H_USER_4+H_USER_1+SALESPERSON")
+f.Data.DataTable.AddExpressionColumn("dtSalesAll","RATE_KEY","string","CUSTOMER+H_USER_4+H_USER_1")
+f.Data.DataTable.AddExpressionColumn("dtSalesAll","RATE_KEY_ANY","string","CUSTOMER+H_USER_4")
+
+'ADD DICTIONARY COLUMNS
+f.Data.DataTable.AddColumn("dtSalesAll","NAME_SALESPERSON","string")
+f.Data.DataTable.AddColumn("dtSalesAll","RATE_SPEC","float")
+f.Data.DataTable.AddColumn("dtSalesAll","RATE_ANY","float")
+f.Data.DataTable.AddColumn("dtSalesAll","ADD","string")
+f.Data.DataTable.AddColumn("dtSalesAll","DELETE","string")
+
+'ADD EXPRESSION COLUMNS
+f.Data.DataTable.AddExpressionColumn("dtSalesAll","RATE","float","iif(RATE_ANY=0,RATE_SPEC,RATE_ANY)")
+f.Data.DataTable.AddExpressionColumn("dtSalesAll","COMMISSION","float","EXTENSION*RATE")
+
+'ADD ADDITIONAL COLUMNS AND SET VALUES
+f.Data.DataTable.AddColumn("dtSalesAll","USER_ID","string")
+f.Data.DataTable.SetValue("dtSalesAll",-1,"USER_ID",v.Caller.User)
+f.Data.DataTable.AddColumn("dtSalesAll","TERMINAL","string")
+f.Data.DataTable.SetValue("dtSalesAll",-1,"TERMINAL",v.Caller.Terminal)
+
+'CHECK FOR LINKED DATA AND ADJUST ACCORDINGLY
+f.Intrinsic.Control.CallSub(Link_Check)
+
+'POPULATE DICTIONARY COLUMNS
+f.Intrinsic.Control.CallSub(Dictionary_Load)
+
+'CREATE DATAVIEW TO POPULATE GRIDVIEW
+f.Data.DataView.Create("dtSalesAll","dvSalesDist",22,"COMMISSION > 0 AND COM_TYPE = 'D'","")
+f.Data.DataView.Create("dtSalesAll","dvSalesSP",22,"COMMISSION > 0 AND COM_TYPE = 'R'","")
+f.Data.DataView.Create("dtSalesAll","dvSalesNC",22,"COMMISSION = 0","")
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.dtLoad.End
+
+Program.Sub.gvFormat.Start
+'GENERATE FORMATTING FOR ALL OF THE COLUMNS IN THE GRIDVIEW
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.fCalc.Declare
+
+f.Data.DataTable.Compute("dtSalesAll","Count(ORDER_NO)",,v.Local.fCalc)
+
+v.Local.i.Declare
+
+gui.dbSAC.GsGcSalesDist.Visible(false)
+gui.dbSAC.GsGcSalesSP.Visible(False)
+gui.dbSAC.GsGcSalesNoCom.Visible(false)
+
+gui.dbSAC.GsGcSalesDist.SuspendLayout
+gui.dbSAC.GsGcSalesSP.SuspendLayout
+gui.dbSAC.GsGcSalesNoCom.SuspendLayout
+
+gui.dbSAC.GsGcSalesDist.AddGridviewFromDataview("gvSalesDist","dtSalesAll","dvSalesDist")
+gui.dbSAC.GsGcSalesSP.AddGridviewFromDataview("gvSalesSP","dtSalesAll","dvSalesSP")
+gui.dbSAC.GsGcSalesNoCom.AddGridviewFromDataview("gvSalesNC","dtSalesAll","dvSalesNC")
+'gui.dbSAC.GsGcSalesDist.AddGridviewFromDataview("gvchildL","dtSalesAll","dvchildL")
+'gui.dbSAC.GsGcSalesDist.AddGridviewFromDataview("gvchildM","dtSalesAll","dvchildM")
+'gui.dbSAC.GsGcSalesDist.AddGridviewFromDataview("gvchildO","dtSalesAll","dvchildO")
+gui.dbSAC.GsGcSalesDist.MainView("gvSalesDist")
+gui.dbSAC.GsGcSalesSP.MainView("gvSalesSP")
+gui.dbSAC.GsGcSalesNoCom.MainView("gvSalesNC")
+
+gui.dbSAC.GsGcSalesDist.SetGridviewProperty("gvSalesDist","OptionsDetailShowDetailTabs",True)
+gui.dbSAC.GsGcSalesDist.SetGridviewProperty("gvSalesDist","Showgrouppanel",True)
+
+gui.dbSAC.GsGcSalesSP.SetGridviewProperty("gvSalesSP","OptionsDetailShowDetailTabs",True)
+gui.dbSAC.GsGcSalesSP.SetGridviewProperty("gvSalesSP","Showgrouppanel",True)
+
+gui.dbSAC.GsGcSalesDist.ClearGrouping("gvSalesDist")
+gui.dbSAC.GsGcSalesSP.ClearGrouping("gvSalesSP")
+
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","COM_ID","GroupIndex",0)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","COM_ID","GroupIndex",0)
+
+gui.dbSAC.GsGcSalesDist.AddGridGroupSummaryItem("gvSalesDist","COMMISSION","COMMISSION","Sum","Commission:","","c")
+gui.dbSAC.GsGcSalesSP.AddGridGroupSummaryItem("gvSalesSP","COMMISSION","COMMISSION","Sum","Commission:","","c")
+
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","RATE_KEY","Visible",False)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","L_USER_1","Visible",False)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","COM_TYPE","Visible",False)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","USER_ID","Visible",False)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","RATE_KEY_ANY","Visible",False)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","RATE_SPEC","Visible",False)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","RATE_ANY","Visible",False)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","TERMINAL","Visible",False)
+
+'gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","","Caption","")
+'gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","","HeaderFontBold","TRUE")
+'gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","","HeaderHAlignment","CENTER")
+'gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","","CellHAlignment","CENTER")
+'gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","","MinWidth",)
+'gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","","MaxWidth",)
+'gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","","DisplayCustomNumeric","$###,##0.00")
+'gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","","ReadOnly","TRUE")
+'gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","","AllowEdit","FALSE")
+'gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","","VisibleIndex",v.Local.i)
+'f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","INVOICE","Caption","Invoice")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","INVOICE","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","INVOICE","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","INVOICE","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","INVOICE","MinWidth",85)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","INVOICE","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","INVOICE","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","INVOICE","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","ORDER_NO","Caption","Sales Order")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","ORDER_NO","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","ORDER_NO","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","ORDER_NO","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","ORDER_NO","MinWidth",85)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","ORDER_NO","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","ORDER_NO","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","ORDER_NO","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","ORDER_LINE","Caption","Line")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","ORDER_LINE","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","ORDER_LINE","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","ORDER_LINE","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","ORDER_LINE","MinWidth",65)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","ORDER_LINE","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","ORDER_LINE","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","ORDER_LINE","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_1","Caption","Surgeon")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_1","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_1","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_1","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_1","MinWidth",115)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_1","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_1","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_1","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_2","Caption","Surgery Date")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_2","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_2","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_2","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_2","MinWidth",115)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_2","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_2","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_2","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_3","Caption","Patient Name")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_3","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_3","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_3","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_3","MinWidth",115)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_3","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_3","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_3","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","COM_ID","Caption","Distributor")
+
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_4","Caption","Cover Rep")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_4","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_4","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_4","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_4","MinWidth",115)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_4","ReadOnly","FALSE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_4","AllowEdit","TRUE")
+gui.dbSAC.GsGcSalesDist.ColumnEdit("gvSalesDist","H_USER_4","Dropdownlist",v.Global.sDDL)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","H_USER_4","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","SALESPERSON","Caption","SP")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","SALESPERSON","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","SALESPERSON","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","SALESPERSON","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","SALESPERSON","MinWidth",45)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","SALESPERSON","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","SALESPERSON","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","SALESPERSON","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","NAME_SALESPERSON","Caption","Salesperson Name")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","NAME_SALESPERSON","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","NAME_SALESPERSON","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","NAME_SALESPERSON","CellHAlignment","LEFT")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","NAME_SALESPERSON","MinWidth",115)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","NAME_SALESPERSON","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","NAME_SALESPERSON","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","NAME_SALESPERSON","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","CUSTOMER","Caption","Customer")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","CUSTOMER","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","CUSTOMER","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","CUSTOMER","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","CUSTOMER","MinWidth",85)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","CUSTOMER","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","CUSTOMER","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","CUSTOMER","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","NAME_CUSTOMER","Caption","Customer Name")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","NAME_CUSTOMER","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","NAME_CUSTOMER","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","NAME_CUSTOMER","CellHAlignment","LEFT")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","NAME_CUSTOMER","MinWidth",115)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","NAME_CUSTOMER","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","NAME_CUSTOMER","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","NAME_CUSTOMER","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","CUSTOMER_PO","Caption","Customer PO")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","CUSTOMER_PO","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","CUSTOMER_PO","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","CUSTOMER_PO","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","CUSTOMER_PO","MinWidth",85)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","CUSTOMER_PO","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","CUSTOMER_PO","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","CUSTOMER_PO","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DATE_ORDER","Caption","Order Date")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DATE_ORDER","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DATE_ORDER","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DATE_ORDER","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DATE_ORDER","MinWidth",85)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DATE_ORDER","DisplayCustomDateTime","d")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DATE_ORDER","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DATE_ORDER","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DATE_ORDER","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DATE_INVOICE","Caption","Invoice Date")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DATE_INVOICE","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DATE_INVOICE","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DATE_INVOICE","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DATE_INVOICE","MinWidth",85)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DATE_INVOICE","DisplayCustomDateTime","d")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DATE_INVOICE","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DATE_INVOICE","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DATE_INVOICE","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","PART","Caption","Part")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","PART","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","PART","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","PART","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","PART","MinWidth",85)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","PART","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","PART","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","PART","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DESCRIPTION","Caption","Part Description")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DESCRIPTION","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DESCRIPTION","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DESCRIPTION","CellHAlignment","LEFT")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DESCRIPTION","MinWidth",145)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DESCRIPTION","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DESCRIPTION","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DESCRIPTION","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","QTY_SHIPPED","Caption","Qty Ship")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","QTY_SHIPPED","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","QTY_SHIPPED","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","QTY_SHIPPED","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","QTY_SHIPPED","MinWidth",85)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","QTY_SHIPPED","DisplayCustomNumeric","###,##0.0")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","QTY_SHIPPED","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","QTY_SHIPPED","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","QTY_SHIPPED","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","PRICE","Caption","Price")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","PRICE","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","PRICE","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","PRICE","CellHAlignment","RIGHT")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","PRICE","MinWidth",85)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","PRICE","DisplayCustomNumeric","$###,##0.00")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","PRICE","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","PRICE","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","PRICE","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","EXTENSION","Caption","Extension")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","EXTENSION","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","EXTENSION","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","EXTENSION","CellHAlignment","RIGHT")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","EXTENSION","MinWidth",115)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","EXTENSION","DisplayCustomNumeric","$###,##0.00")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","EXTENSION","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","EXTENSION","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","EXTENSION","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","RATE","Caption","Rate")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","RATE","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","RATE","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","RATE","CellHAlignment","RIGHT")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","RATE","MinWidth",65)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","RATE","DisplayCustomNumeric","###,##0.00%")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","RATE","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","RATE","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","RATE","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","COMMISSION","Caption","Commission $")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","COMMISSION","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","COMMISSION","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","COMMISSION","CellHAlignment","RIGHT")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","COMMISSION","MinWidth",115)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","COMMISSION","DisplayCustomNumeric","$###,##0.00")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","COMMISSION","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","COMMISSION","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","COMMISSION","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","ADD","Caption","Add")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","ADD","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","ADD","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","ADD","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.ColumnEdit("gvSalesDist","ADD","EditorButton","ADD")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","ADD","MinWidth",45)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","ADD","MaxWidth",45)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","ADD","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","ADD","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","ADD","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DELETE","Caption","Del")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DELETE","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DELETE","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DELETE","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesDist.ColumnEdit("gvSalesDist","DELETE","EditorButton","DEL")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DELETE","MinWidth",45)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DELETE","MaxWidth",45)
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DELETE","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DELETE","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesDist.SetColumnProperty("gvSalesDist","DELETE","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+v.Local.i.Set(0)
+
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","RATE_KEY","Visible",False)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","L_USER_1","Visible",False)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","COM_TYPE","Visible",False)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","USER_ID","Visible",False)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","TERMINAL","Visible",False)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","RATE_KEY_ANY","Visible",False)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","RATE_SPEC","Visible",False)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","RATE_ANY","Visible",False)
+
+'gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","","Caption","")
+'gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","","HeaderFontBold","TRUE")
+'gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","","HeaderHAlignment","CENTER")
+'gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","","CellHAlignment","CENTER")
+'gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","","MinWidth",)
+'gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","","MaxWidth",)
+'gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","","DisplayCustomNumeric","$###,##0.00")
+'gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","","ReadOnly","TRUE")
+'gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","","AllowEdit","FALSE")
+'gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","","VisibleIndex",v.Local.i)
+'f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","INVOICE","Caption","Invoice")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","INVOICE","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","INVOICE","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","INVOICE","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","INVOICE","MinWidth",85)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","INVOICE","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","INVOICE","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","INVOICE","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","ORDER_NO","Caption","Sales Order")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","ORDER_NO","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","ORDER_NO","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","ORDER_NO","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","ORDER_NO","MinWidth",85)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","ORDER_NO","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","ORDER_NO","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","ORDER_NO","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","ORDER_LINE","Caption","Line")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","ORDER_LINE","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","ORDER_LINE","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","ORDER_LINE","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","ORDER_LINE","MinWidth",65)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","ORDER_LINE","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","ORDER_LINE","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","ORDER_LINE","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_1","Caption","Surgeon")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_1","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_1","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_1","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_1","MinWidth",115)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_1","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_1","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_1","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_2","Caption","Surgery Date")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_2","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_2","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_2","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_2","MinWidth",115)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_2","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_2","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_2","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_3","Caption","Patient Name")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_3","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_3","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_3","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_3","MinWidth",115)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_3","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_3","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_3","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","COM_ID","Caption","Sales Rep")
+
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_4","Caption","Cover Rep")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_4","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_4","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_4","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_4","MinWidth",115)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_4","ReadOnly","FALSE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_4","AllowEdit","TRUE")
+gui.dbSAC.GsGcSalesSP.ColumnEdit("gvSalesSP","H_USER_4","Dropdownlist",v.Global.sDDL)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","H_USER_4","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","SALESPERSON","Caption","SP")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","SALESPERSON","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","SALESPERSON","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","SALESPERSON","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","SALESPERSON","MinWidth",45)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","SALESPERSON","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","SALESPERSON","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","SALESPERSON","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","NAME_SALESPERSON","Caption","Salesperson Name")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","NAME_SALESPERSON","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","NAME_SALESPERSON","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","NAME_SALESPERSON","CellHAlignment","LEFT")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","NAME_SALESPERSON","MinWidth",115)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","NAME_SALESPERSON","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","NAME_SALESPERSON","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","NAME_SALESPERSON","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","CUSTOMER","Caption","Customer")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","CUSTOMER","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","CUSTOMER","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","CUSTOMER","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","CUSTOMER","MinWidth",85)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","CUSTOMER","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","CUSTOMER","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","CUSTOMER","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","NAME_CUSTOMER","Caption","Customer Name")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","NAME_CUSTOMER","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","NAME_CUSTOMER","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","NAME_CUSTOMER","CellHAlignment","LEFT")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","NAME_CUSTOMER","MinWidth",115)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","NAME_CUSTOMER","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","NAME_CUSTOMER","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","NAME_CUSTOMER","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","CUSTOMER_PO","Caption","Customer PO")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","CUSTOMER_PO","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","CUSTOMER_PO","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","CUSTOMER_PO","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","CUSTOMER_PO","MinWidth",85)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","CUSTOMER_PO","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","CUSTOMER_PO","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","CUSTOMER_PO","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DATE_ORDER","Caption","Order Date")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DATE_ORDER","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DATE_ORDER","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DATE_ORDER","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DATE_ORDER","MinWidth",85)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DATE_ORDER","DisplayCustomDateTime","d")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DATE_ORDER","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DATE_ORDER","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DATE_ORDER","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DATE_INVOICE","Caption","Invoice Date")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DATE_INVOICE","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DATE_INVOICE","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DATE_INVOICE","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DATE_INVOICE","MinWidth",85)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DATE_INVOICE","DisplayCustomDateTime","d")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DATE_INVOICE","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DATE_INVOICE","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DATE_INVOICE","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","PART","Caption","Part")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","PART","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","PART","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","PART","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","PART","MinWidth",85)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","PART","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","PART","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","PART","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DESCRIPTION","Caption","Part Description")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DESCRIPTION","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DESCRIPTION","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DESCRIPTION","CellHAlignment","LEFT")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DESCRIPTION","MinWidth",145)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DESCRIPTION","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DESCRIPTION","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DESCRIPTION","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","QTY_SHIPPED","Caption","Qty Ship")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","QTY_SHIPPED","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","QTY_SHIPPED","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","QTY_SHIPPED","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","QTY_SHIPPED","MinWidth",85)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","QTY_SHIPPED","DisplayCustomNumeric","###,##0.0")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","QTY_SHIPPED","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","QTY_SHIPPED","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","QTY_SHIPPED","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","PRICE","Caption","Price")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","PRICE","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","PRICE","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","PRICE","CellHAlignment","RIGHT")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","PRICE","MinWidth",85)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","PRICE","DisplayCustomNumeric","$###,##0.00")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","PRICE","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","PRICE","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","PRICE","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","EXTENSION","Caption","Extension")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","EXTENSION","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","EXTENSION","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","EXTENSION","CellHAlignment","RIGHT")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","EXTENSION","MinWidth",115)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","EXTENSION","DisplayCustomNumeric","$###,##0.00")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","EXTENSION","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","EXTENSION","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","EXTENSION","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","RATE","Caption","Rate")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","RATE","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","RATE","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","RATE","CellHAlignment","RIGHT")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","RATE","MinWidth",65)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","RATE","DisplayCustomNumeric","###,##0.00")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","RATE","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","RATE","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","RATE","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","COMMISSION","Caption","Commission $")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","COMMISSION","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","COMMISSION","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","COMMISSION","CellHAlignment","RIGHT")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","COMMISSION","MinWidth",115)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","COMMISSION","DisplayCustomNumeric","$###,##0.00")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","COMMISSION","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","COMMISSION","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","COMMISSION","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","ADD","Caption","Add")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","ADD","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","ADD","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","ADD","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.ColumnEdit("gvSalesSP","ADD","EditorButton","ADD")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","ADD","MinWidth",45)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","ADD","MaxWidth",45)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","ADD","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","ADD","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","ADD","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DELETE","Caption","Del")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DELETE","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DELETE","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DELETE","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesSP.ColumnEdit("gvSalesSP","DELETE","EditorButton","DEL")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DELETE","MinWidth",45)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DELETE","MaxWidth",45)
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DELETE","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DELETE","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesSP.SetColumnProperty("gvSalesSP","DELETE","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+v.Local.i.Set(0)
+
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","RATE_KEY","Visible",False)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","L_USER_1","Visible",False)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","COM_TYPE","Visible",False)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","USER_ID","Visible",False)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","TERMINAL","Visible",False)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","RATE_KEY_ANY","Visible",False)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","RATE_SPEC","Visible",False)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","RATE_ANY","Visible",False)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","ADD","Visible",False)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","DELETE","Visible",False)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","COM_ID","Visible",False)
+
+'gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","","Caption","")
+'gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","","HeaderFontBold","TRUE")
+'gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","","HeaderHAlignment","CENTER")
+'gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","","CellHAlignment","CENTER")
+'gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","","MinWidth",)
+'gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","","MaxWidth",)
+'gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","","DisplayCustomNumeric","$###,##0.00")
+'gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","","ReadOnly","TRUE")
+'gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","","AllowEdit","FALSE")
+'gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","","VisibleIndex",v.Local.i)
+'f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","INVOICE","Caption","Invoice")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","INVOICE","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","INVOICE","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","INVOICE","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","INVOICE","MinWidth",85)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","INVOICE","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","INVOICE","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","INVOICE","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","ORDER_NO","Caption","Sales Order")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","ORDER_NO","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","ORDER_NO","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","ORDER_NO","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","ORDER_NO","MinWidth",85)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","ORDER_NO","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","ORDER_NO","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","ORDER_NO","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","ORDER_LINE","Caption","Line")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","ORDER_LINE","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","ORDER_LINE","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","ORDER_LINE","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","ORDER_LINE","MinWidth",65)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","ORDER_LINE","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","ORDER_LINE","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","ORDER_LINE","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_1","Caption","Surgeon")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_1","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_1","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_1","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_1","MinWidth",115)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_1","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_1","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_1","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_2","Caption","Surgery Date")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_2","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_2","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_2","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_2","MinWidth",115)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_2","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_2","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_2","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_3","Caption","Patient Name")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_3","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_3","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_3","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_3","MinWidth",115)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_3","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_3","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_3","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","COM_ID","Caption","Sales Rep")
+
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_4","Caption","Cover Rep")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_4","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_4","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_4","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_4","MinWidth",115)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_4","ReadOnly","FALSE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_4","AllowEdit","TRUE")
+gui.dbSAC.GsGcSalesNoCom.ColumnEdit("gvSalesNC","H_USER_4","Dropdownlist",v.Global.sDDL)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","H_USER_4","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","SALESPERSON","Caption","SP")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","SALESPERSON","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","SALESPERSON","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","SALESPERSON","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","SALESPERSON","MinWidth",45)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","SALESPERSON","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","SALESPERSON","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","SALESPERSON","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","NAME_SALESPERSON","Caption","Salesperson Name")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","NAME_SALESPERSON","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","NAME_SALESPERSON","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","NAME_SALESPERSON","CellHAlignment","LEFT")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","NAME_SALESPERSON","MinWidth",115)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","NAME_SALESPERSON","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","NAME_SALESPERSON","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","NAME_SALESPERSON","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","CUSTOMER","Caption","Customer")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","CUSTOMER","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","CUSTOMER","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","CUSTOMER","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","CUSTOMER","MinWidth",85)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","CUSTOMER","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","CUSTOMER","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","CUSTOMER","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","NAME_CUSTOMER","Caption","Customer Name")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","NAME_CUSTOMER","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","NAME_CUSTOMER","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","NAME_CUSTOMER","CellHAlignment","LEFT")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","NAME_CUSTOMER","MinWidth",115)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","NAME_CUSTOMER","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","NAME_CUSTOMER","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","NAME_CUSTOMER","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","CUSTOMER_PO","Caption","Customer PO")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","CUSTOMER_PO","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","CUSTOMER_PO","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","CUSTOMER_PO","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","CUSTOMER_PO","MinWidth",85)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","CUSTOMER_PO","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","CUSTOMER_PO","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","CUSTOMER_PO","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","DATE_ORDER","Caption","Order Date")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","DATE_ORDER","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","DATE_ORDER","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","DATE_ORDER","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","DATE_ORDER","MinWidth",85)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","DATE_ORDER","DisplayCustomDateTime","d")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","DATE_ORDER","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","DATE_ORDER","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","DATE_ORDER","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","DATE_INVOICE","Caption","Invoice Date")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","DATE_INVOICE","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","DATE_INVOICE","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","DATE_INVOICE","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","DATE_INVOICE","MinWidth",85)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","DATE_INVOICE","DisplayCustomDateTime","d")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","DATE_INVOICE","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","DATE_INVOICE","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","DATE_INVOICE","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","PART","Caption","Part")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","PART","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","PART","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","PART","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","PART","MinWidth",85)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","PART","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","PART","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","PART","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","DESCRIPTION","Caption","Part Description")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","DESCRIPTION","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","DESCRIPTION","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","DESCRIPTION","CellHAlignment","LEFT")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","DESCRIPTION","MinWidth",145)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","DESCRIPTION","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","DESCRIPTION","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","DESCRIPTION","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","QTY_SHIPPED","Caption","Qty Ship")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","QTY_SHIPPED","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","QTY_SHIPPED","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","QTY_SHIPPED","CellHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","QTY_SHIPPED","MinWidth",85)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","QTY_SHIPPED","DisplayCustomNumeric","###,##0.0")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","QTY_SHIPPED","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","QTY_SHIPPED","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","QTY_SHIPPED","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","PRICE","Caption","Price")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","PRICE","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","PRICE","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","PRICE","CellHAlignment","RIGHT")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","PRICE","MinWidth",85)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","PRICE","DisplayCustomNumeric","$###,##0.00")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","PRICE","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","PRICE","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","PRICE","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","EXTENSION","Caption","Extension")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","EXTENSION","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","EXTENSION","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","EXTENSION","CellHAlignment","RIGHT")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","EXTENSION","MinWidth",115)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","EXTENSION","DisplayCustomNumeric","$###,##0.00")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","EXTENSION","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","EXTENSION","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","EXTENSION","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","RATE","Caption","Rate")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","RATE","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","RATE","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","RATE","CellHAlignment","RIGHT")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","RATE","MinWidth",65)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","RATE","DisplayCustomNumeric","###,##0.00")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","RATE","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","RATE","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","RATE","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","COMMISSION","Caption","Commission $")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","COMMISSION","HeaderFontBold","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","COMMISSION","HeaderHAlignment","CENTER")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","COMMISSION","CellHAlignment","RIGHT")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","COMMISSION","MinWidth",115)
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","COMMISSION","DisplayCustomNumeric","$###,##0.00")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","COMMISSION","ReadOnly","TRUE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","COMMISSION","AllowEdit","FALSE")
+gui.dbSAC.GsGcSalesNoCom.SetColumnProperty("gvSalesNC","COMMISSION","VisibleIndex",v.Local.i)
+f.Intrinsic.Math.Add(v.local.i,1,v.Local.i)
+
+gui.dbSAC.GsGcSalesDist.ResumeLayout
+gui.dbSAC.GsGcSalesSP.ResumeLayout
+gui.dbSAC.GsGcSalesNoCom.ResumeLayout
+gui.dbSAC.GsGcSalesNoCom.Visible(true)
+gui.dbSAC.GsGcSalesDist.Visible(true)
+gui.dbSAC.GsGcSalesSP.Visible(true)
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.gvFormat.End
+
+Program.Sub.dbSAC_UnLoad.Start
+'CLOSE EVERYTHING AND UNLOAD THE DASHBOARD
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+gui.dbSAC..Visible(false)
+
+f.Data.DataView.Close("dtSalesAll","dvSalesDist")
+f.Data.DataView.Close("dtSalesAll","dvSalesSP")
+f.Data.DataTable.Close("dtSalesAll")
+
+f.Intrinsic.Control.End
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.dbSAC_UnLoad.End
+
+Program.Sub.cmdREFRESH_Click.Start
+'CLOSE OPEN TABLES AND REFRESH THE DATA
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+f.Intrinsic.Control.If(v.DataTable.dtSalesAll.Exists,=,true)
+
+	f.Data.DataView.Close("dtSalesAll","dvSalesDist")
+	f.Data.DataView.Close("dtSalesAll","dvSalesSP")
+	f.Data.DataTable.Close("dtSalesAll")
+	
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.CallSub(ddlPopulate)
+f.Intrinsic.Control.CallSub(dtLoad)
+f.Intrinsic.Control.CallSub(gvFormat)
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdREFRESH_Click.End
+
+Program.Sub.SetContextMenus.Start
+'POPULATE CONTEXT MENUS FOR THE GRIDVIEW
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+gui.dbSAC..ContextMenuCreate("ctxSales")
+gui.dbSAC..ContextMenuAddItem("ctxSales","Print Details",0,"Print Details")
+gui.dbSAC..ContextMenuSetItemEventHandler("ctxSales","Print Details","Print_Detail")
+gui.dbSAC..ContextMenuAddItem("ctxSales","Print Summary",0,"Print Summary")
+gui.dbSAC..ContextMenuSetItemEventHandler("ctxSales","Print Summary","Print_Summary")
+gui.dbSAC..ContextMenuAddItem("ctxSales","Refresh",0,"Refresh")
+gui.dbSAC..ContextMenuSetItemEventHandler("ctxSales","Refresh","cmdREFRESH_Click")
+gui.dbSAC..ContextMenuAddItem("ctxSales","Export",0,"Export")
+gui.dbSAC..ContextMenuSetItemEventHandler("ctxSales","Export","cmdEXPORT_Click")
+gui.dbSAC.GsGcSalesDist.ContextMenuAttach("ctxSales")
+gui.dbSAC.GsGcSalesSP.ContextMenuAttach("ctxSales")
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.SetContextMenus.End
+
+Program.Sub.cmdExport_Click.Start
+'EXPORT THE GRIDVIEW TO AN EXCEL SHEET AND OPEN THE FILE
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.sOutFile.Declare(String)
+v.Local.sDate.Declare(String)
+v.Local.sTime.Declare(String)
+v.Local.iCount.Declare
+v.Local.sMsg.Declare(String)
+v.Local.bCheck.Declare(boolean)
+V.Local.sFileExport.Declare(String)
+
+
+f.Intrinsic.Control.SelectCase(v.Global.sRptCat)
+
+f.Intrinsic.Control.Case("D")
+	gui.dbSAC.GsGcSalesDist.GetRowCount("gvSalesDist",v.Local.iCount)
+	
+f.Intrinsic.Control.Case("R")
+	gui.dbSAC.GsGcSalesSP.GetRowCount("gvSalesSP",v.Local.iCount)
+	
+f.Intrinsic.Control.EndSelect
+
+Function.Intrinsic.Control.BlockEvents
+gui.dbSAC..Enabled(false)
+
+f.Intrinsic.Control.If(v.Local.iCount,=,0)
+
+	f.Intrinsic.UI.Msgbox("No rows in grid to export!")
+	gui.dbSAC..SetFocus
+	gui.dbSAC..Enabled(True)
+	Function.Intrinsic.Control.UnblockEvents
+	
+	f.Intrinsic.Control.ExitSub
+	
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.String.Format(v.Ambient.Date,"MMDDYYYY",v.Local.sDate)
+f.Intrinsic.String.Format(v.Ambient.Now,"HhNn",v.Local.sTime)
+
+f.Intrinsic.String.Build("{0}\CUSTOM\6547\EXPORTS\Commissions_{1}_{2}.xlsx",v.Caller.GlobalDir,v.Local.sDate.trim,v.Local.sTime.Trim,V.Local.sFileExport)
+f.Intrinsic.File.Exists(v.Local.sFileExport,v.Local.bCheck)
+
+f.Intrinsic.Control.If(v.Local.bCheck,=,true)
+
+	f.Intrinsic.File.DeleteFile(v.Local.sFileExport)
+	
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.SelectCase(v.Global.sRptCat)
+
+f.Intrinsic.Control.Case("D")
+	gui.dbSAC.GsGcSalesDist.Export(V.Local.sFileExport,"xlsx")
+	
+f.Intrinsic.Control.Case("R")
+	gui.dbSAC.GsGcSalesSP.Export(V.Local.sFileExport,"xlsx")
+	
+f.Intrinsic.Control.EndSelect
+
+f.Intrinsic.File.Exists(v.Local.sFileExport,v.Local.bCheck)
+
+f.Intrinsic.Control.If(v.Local.bCheck,=,False)
+
+	f.Intrinsic.UI.Msgbox("Export cancelled (File does not exist)")
+	gui.dbSAC..SetFocus
+	gui.dbSAC..Enabled(True)
+	Function.Intrinsic.Control.UnblockEvents
+	
+	f.Intrinsic.Control.ExitSub
+	
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+
+Function.Intrinsic.Control.UnblockEvents
+
+gui.dbSAC..SetFocus
+gui.dbSAC..Enabled(True)
+
+f.Intrinsic.Control.ExitSub
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdExport_Click.End
+
+Program.Sub.Format_Reset.Start
+'RESETS GRID TO DEFAULT FORMATTING FROM gvFormat AND OVERWRITES THE REGISTY WITH THE DEFAULT VALUES
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Global.sGVR.Set("RESET")
+
+f.Intrinsic.Control.CallSub(gvFormat)
+
+v.Global.sGVR.Set("")
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.Format_Reset.End
+
+Program.Sub.ddlPopulate.Start
+'GENERATE DROPDOWN LIST(S) FOR DDL
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+gui.dbSAC.ddlSP.ClearItems
+gui.FieldSelect.ddlUser.ClearItems
+v.Global.sDDL.Set("")
+
+gui.dbSAC.ddlSP.AddItem("ALL")
+gui.FieldSelect.ddlUser.AddItem("")
+
+f.ODBC.Connection!conx.OpenCompanyConnection
+
+f.ODBC.Connection!conx.OpenLocalRecordsetRO("DDL","select ID from V_SALESPERSONS")
+
+f.Intrinsic.Control.DoUntil(v.ODBC.conx!DDL.EOF,=,true)
+
+	gui.dbSAC.ddlSP.AddItem(v.ODBC.conx!DDL.FieldValTrim!ID)
+	
+	f.ODBC.conx!DDL.MoveNext
+	
+f.Intrinsic.Control.Loop
+
+f.ODBC.conx!DDL.Close
+
+f.ODBC.Connection!conx.OpenLocalRecordsetRO("DDL","select USER_FIELD from GCG_6547_USER_FIELDS where ID_TYPE = 'D' or ID_TYPE = 'R'")
+
+f.Intrinsic.Control.DoUntil(v.ODBC.conx!DDL.EOF,=,true)
+
+	gui.FieldSelect.ddlUser.AddItem(v.ODBC.conx!DDL.FieldValTrim!USER_FIELD)
+	f.Intrinsic.String.Build("{0}*!*{1}",v.Global.sDDL,v.ODBC.conx!DDL.FieldValTrim!USER_FIELD,v.Global.sDDL)
+	
+	f.ODBC.conx!DDL.MoveNext
+	
+f.Intrinsic.Control.Loop
+
+f.ODBC.conx!DDL.Close
+
+f.ODBC.Connection!conx.Close
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.ddlPopulate.End
+
+Program.Sub.chkDist_Click.Start
+'SWITCH TABS AND ADJUST CONTEXT MENUS BASED ON WHICH CHECKBOX IS CLICKED
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+f.Intrinsic.Control.SelectCase(v.Screen.dbSAC!chkDist.Value)
+
+f.Intrinsic.Control.Case(1)
+
+f.Intrinsic.Control.If(v.Screen.dbSAC!chkRep.Value,=,1)
+
+	gui.dbSAC.chkRep.Value(0)
+'	gui.dbSAC..ContextMenuAddItem("ctxSales","Create AP Batch",0,"Create AP Batch")
+	v.Global.sRptCat.Set("D")
+	gui.dbSAC.tabSales.SetTab(0)
+	
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.Case(0)
+
+f.Intrinsic.Control.If(v.Screen.dbSAC!chkRep.Value,=,0)
+
+	gui.dbSAC.chkRep.Value(1)
+'	gui.dbSAC..ContextMenuRemoveItem("ctxSales","Create AP Batch")
+	v.Global.sRptCat.Set("R")
+	gui.dbSAC.tabSales.SetTab(1)
+	
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.EndSelect
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.chkDist_Click.End
+
+Program.Sub.chkRep_Click.Start
+'SWITCH TABS AND ADJUST CONTEXT MENUS BASED ON WHICH CHECKBOX IS CLICKED
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+f.Intrinsic.Control.SelectCase(v.Screen.dbSAC!chkRep.Value)
+
+f.Intrinsic.Control.Case(1)
+
+f.Intrinsic.Control.If(v.Screen.dbSAC!chkDist.Value,=,1)
+
+	gui.dbSAC.chkDist.Value(0)
+'	gui.dbSAC..ContextMenuRemoveItem("ctxSales","Create AP Batch")
+	v.Global.sRptCat.Set("R")
+	gui.dbSAC.tabSales.SetTab(1)
+	
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.Case(0)
+
+f.Intrinsic.Control.If(v.Screen.dbSAC!chkDist.Value,=,0)
+
+	gui.dbSAC.chkDist.Value(1)
+'	gui.dbSAC..ContextMenuAddItem("ctxSales","Create AP Batch",0,"Create AP Batch")
+	v.Global.sRptCat.Set("D")
+	gui.dbSAC.tabSales.SetTab(0)
+	
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.EndSelect
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.chkRep_Click.End
+
+Program.Sub.Print_Detail.Start
+'PRINT CUSTOM CRYSTAL REPORT WITH DETAILS
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Global.sRptType.Set("D")
+
+f.Intrinsic.Control.CallSub(cmdPrint_Click)
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.Print_Detail.End
+
+Program.Sub.Print_Summary.Start
+'PRINT CUSTOM CRYSTAL REPORT AS A SUMMARY
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Global.sRptType.Set("R")
+
+f.Intrinsic.Control.CallSub(cmdPrint_Click)
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.Print_Summary.End
+
+Program.Sub.ddlSP_LostFocus.Start
+'POPULATE SALESPERSON NAME WHEN CODE IS SELECTED FROM DROPDOWN (NOT IN USE)
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.sSQL.Declare
+v.Local.sRet.Declare
+
+f.ODBC.Connection!conx.OpenCompanyConnection
+
+f.Intrinsic.String.Build("Select rtrim(NAME) as NAME from V_SALESPERSONS where ID = '{0}'",v.Screen.dbSAC!ddlSP.Text,v.Local.sSQL)
+f.ODBC.Connection!conx.ExecuteandReturn(v.Local.sSQL,v.Local.sRet)
+
+f.Intrinsic.Control.If(v.Ambient.ExecuteandReturnEOF.not)
+
+	gui.dbSAC.txtSP.Text(v.Local.sRet)
+	
+f.Intrinsic.Control.ElseIf(v.Screen.dbSAC!ddlSP.Text,=,"ALL")
+
+	gui.dbSAC.txtSP.Text("All Salespersons")
+	
+f.Intrinsic.Control.Else
+
+	gui.dbSAC.txtSP.Text("")
+	
+f.Intrinsic.Control.EndIf
+
+f.ODBC.Connection!conx.Close
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.ddlSP_LostFocus.End
+
+Program.Sub.BI_Check.Start
+'PULL IN BI ID FOR CUSTOM CRYSTAL REPORT AND ADD REPORT ID IF IT ISN'T FOUND
+f.Intrinsic.Control.Try
+v.Local.sError.Declare
+
+v.Local.i.Declare
+v.Local.sID.Declare
+v.Local.sFP.Declare
+v.Local.sSeq.Declare
+
+f.Intrinsic.UI.InvokeWaitDialog("Please wait...Checking for Report IDs...","Loading...")
+
+f.Global.BI.GetIDFromName("6547_Commission_Report_BI.rpt",v.Local.sID)
+
+f.Intrinsic.Control.If(v.Local.sID,=,"-1")
+
+	f.Global.BI.AddCustomReportID(v.Caller.CompanyCode,"6547_Commission_Report",,v.Local.sID)
+	f.Intrinsic.String.Build("{0}\CUSTOM\{1}",v.Caller.BusintDir,"6547_Commission_Report_BI.rpt",v.Local.sFP)
+	f.Global.BI.AddUserReportSequence(v.Local.sID,v.Caller.CompanyCode,"6547_Commission_Report_BI",0,v.Local.sFP,16,,1,false,false,false,v.Local.sSeq)
+	f.Global.BI.ActivateReportSequence(v.Local.sID,v.Local.sSeq,v.Caller.CompanyCode,True)
+	
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.UI.CloseWaitDialog
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.BI_Check.End
+
+Program.Sub.cmdPrint_Click.Start
+'PRINT THE CUSTOM CRYSTAL REPORT BASED ON TYPE SELECTED
+f.Intrinsic.Control.Try
+v.Local.sError.Declare
+
+v.Local.sDateS.Declare
+v.Local.sDateE.Declare
+v.Local.sBI.Declare
+v.Local.sName.Declare
+v.Local.sParam.Declare
+
+f.Intrinsic.String.Format(v.Screen.dbSAC!dtpSDate.Value,"MM/DD/YYYY",v.Local.sDateS)
+'f.Intrinsic.String.Build("#{0}#",v.Local.sDateS,v.Local.sDateS)
+f.Intrinsic.String.Format(v.Screen.dbSAC!dtpEDate.Value,"MM/DD/YYYY",v.Local.sDateE)
+'f.Intrinsic.String.Build("#{0}#",v.Local.sDateE,v.Local.sDateE)
+
+f.Intrinsic.String.Split("COM_TYPE*!*RPT_TYPE*!*SALESPERSON*!*DATE_START*!*DATE_END","*!*",v.Local.sName)
+f.Intrinsic.String.Build("{2}*!*{3}*!*{4}*!*{0}*!*{1}",v.Local.sDateS,v.Local.sDateE,v.Global.sRptCat,v.Global.sRptType,v.Screen.dbSAC!ddlSP.Text,v.Local.sParam)
+f.Intrinsic.String.Split(v.Local.sParam,"*!*",v.Local.sParam)
+
+f.Global.BI.GetIDFromName("6547_Commission_Report_BI.rpt",v.Local.sBI)
+f.Global.BI.PrintReport(v.Local.sBI,0,v.Local.sName,v.Local.sParam,false)
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdPrint_Click.End
+
+Program.Sub.Directory_Check.Start
+'CHECK FOR AND CREATE ANY DIRECTORIES NEEDED FOR 6547
+f.Intrinsic.Control.Try
+v.Local.sError.Declare
+
+v.Local.bRet.Declare
+v.Local.sFP.Declare
+
+f.Intrinsic.String.Build("{0}\CUSTOM\6547",v.Caller.GlobalDir,v.Local.sFP)
+f.Intrinsic.File.DirExists(v.Local.sFP,v.Local.bRet)
+f.Intrinsic.Control.If(v.Local.bRet,=,false)
+	f.Intrinsic.File.CreateDir(v.Local.sFP)
+f.Intrinsic.Control.EndIf
+v.Local.sFP.Set("")
+
+f.Intrinsic.String.Build("{0}\CUSTOM\6547\IMPORT",v.Caller.GlobalDir,v.Local.sFP)
+f.Intrinsic.File.DirExists(v.Local.sFP,v.Local.bRet)
+f.Intrinsic.Control.If(v.Local.bRet,=,false)
+	f.Intrinsic.File.CreateDir(v.Local.sFP)
+f.Intrinsic.Control.EndIf
+v.Local.sFP.Set("")
+
+f.Intrinsic.String.Build("{0}\CUSTOM\6547\EXPORTS",v.Caller.GlobalDir,v.Local.sFP)
+f.Intrinsic.File.DirExists(v.Local.sFP,v.Local.bRet)
+f.Intrinsic.Control.If(v.Local.bRet,=,false)
+	f.Intrinsic.File.CreateDir(v.Local.sFP)
+f.Intrinsic.Control.EndIf
+v.Local.sFP.Set("")
+
+f.Intrinsic.String.Build("{0}\CUSTOM\6547\PROCESSED",v.Caller.GlobalDir,v.Local.sFP)
+f.Intrinsic.File.DirExists(v.Local.sFP,v.Local.bRet)
+f.Intrinsic.Control.If(v.Local.bRet,=,false)
+	f.Intrinsic.File.CreateDir(v.Local.sFP)
+f.Intrinsic.Control.EndIf
+v.Local.sFP.Set("")
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.Directory_Check.End
+
+Program.Sub.tabSales_Click.Start
+'UPDATE CHECKBOX AND CHANGE CONTEXT MENUS BASED ON WHICH TAB IS CLICKED.
+
+f.Intrinsic.Control.Try
+v.Local.sError.Declare
+
+f.Intrinsic.Control.SelectCase(v.Screen.dbSAC!tabSales.Tab)
+
+f.Intrinsic.Control.Case(0)
+	gui.dbSAC.chkDist.Value(1)
+	f.Intrinsic.Control.CallSub(chkDist_Click)
+f.Intrinsic.Control.Case(1)
+	gui.dbSAC.chkRep.Value(1)
+	f.Intrinsic.Control.CallSub(chkRep_Click)
+
+f.Intrinsic.Control.EndSelect
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.tabSales_Click.End
+
+Program.Sub.GsGcSalesSP_CellValueChanged.Start
+'CHANGE USER FIELD VALUE AND UPDATE ALL RELATED FIELDS
+f.Intrinsic.Control.Try
+v.Local.sError.Declare
+
+v.Local.sSQL.Declare
+v.Local.sRet.Declare
+v.Local.sRep.Declare
+v.Local.i.Declare
+
+v.Global.iIndex.Set(v.Args.RowIndex)
+v.Local.sRep.Set(v.DataTable.dtSalesAll(v.Args.RowIndex).H_USER_4!FieldValTrim)
+
+f.ODBC.Connection!conx.OpenCompanyConnection
+
+f.Intrinsic.String.Build("select rtrim(ID_VALUE) FROM GCG_6547_USER_FIELDS where USER_FIELD = '{0}' and ID_TYPE <> 'L'",v.Local.sRep,v.Local.sSQL)
+f.ODBC.Connection!conx.ExecuteandReturn(v.Local.sSQL,v.Local.sRet)
+
+f.ODBC.Connection!conx.Close
+
+f.Intrinsic.String.Split(v.Local.sRet,"#$#",v.Local.sRet)
+
+f.Intrinsic.Control.For(v.Local.i,0,v.Local.sRet.UBound,1)
+
+	f.Intrinsic.Control.If(v.Local.i,=,0,and,v.Local.sRet(v.Local.i),<>,"")
+	
+		f.Data.DataTable.SetValue("dtSalesAll",v.Args.RowIndex,"COM_ID",v.Local.sRet(v.Local.i))
+		
+	f.Intrinsic.Control.Else
+	
+		f.Data.DataTable.AddRow("dtSalesAll","INVOICE",v.DataTable.dtSalesAll(v.Global.iIndex).INVOICE!FieldVal,"ORDER_NO",v.DataTable.dtSalesAll(v.Global.iIndex).ORDER_NO!FieldVal,"ORDER_LINE",v.DataTable.dtSalesAll(v.Global.iIndex).ORDER_LINE!FieldVal,"H_USER_1",v.DataTable.dtSalesAll(v.Global.iIndex).H_USER_1!FieldVal,"H_USER_2",v.DataTable.dtSalesAll(v.Global.iIndex).H_USER_2!FieldVal,"H_USER_3",v.DataTable.dtSalesAll(v.Global.iIndex).H_USER_3!FieldVal,"H_USER_4",v.Local.sRep,"SALESPERSON",v.DataTable.dtSalesAll(v.Global.iIndex).SALESPERSON!FieldVal,"CUSTOMER",v.DataTable.dtSalesAll(v.Global.iIndex).CUSTOMER!FieldVal,"NAME_CUSTOMER",v.DataTable.dtSalesAll(v.Global.iIndex).NAME_CUSTOMER!FieldVal,"CUSTOMER_PO",v.DataTable.dtSalesAll(v.Global.iIndex).CUSTOMER_PO!FieldVal,"DATE_ORDER",v.DataTable.dtSalesAll(v.Global.iIndex).DATE_ORDER!FieldVal,"DATE_INVOICE",v.DataTable.dtSalesAll(v.Global.iIndex).DATE_INVOICE!FieldVal,"PART",v.DataTable.dtSalesAll(v.Global.iIndex).PART!FieldVal,"DESCRIPTION",v.DataTable.dtSalesAll(v.Global.iIndex).DESCRIPTION!FieldVal,"QTY_SHIPPED",v.DataTable.dtSalesAll(v.Global.iIndex).QTY_SHIPPED!FieldVal,"PRICE",v.DataTable.dtSalesAll(v.Global.iIndex).PRICE!FieldVal,"EXTENSION",v.DataTable.dtSalesAll(v.Global.iIndex).EXTENSION!FieldVal,"USER_ID",v.Caller.User,"TERMINAL",v.Caller.Terminal,"COM_ID",v.Local.sRet(v.Local.i))
+	
+	f.Intrinsic.Control.EndIf
+	
+f.Intrinsic.Control.Next(v.Local.i)
+
+f.Data.DataTable.AcceptChanges("dtSalesAll")
+
+f.Intrinsic.Control.CallSub(Dictionary_Load)
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.GsGcSalesSP_CellValueChanged.End
+
+Program.Sub.GsGcSalesNoCom_CellValueChanged.Start
+'CHANGE USER FIELD VALUE AND UPDATE ALL RELATED FIELDS
+f.Intrinsic.Control.Try
+v.Local.sError.Declare
+
+v.Local.sSQL.Declare
+v.Local.sRet.Declare
+v.Local.sRep.Declare
+v.Local.i.Declare
+
+v.Global.iIndex.Set(v.Args.RowIndex)
+v.Local.sRep.Set(v.DataTable.dtSalesAll(v.Args.RowIndex).H_USER_4!FieldValTrim)
+
+'f.Data.DataTable.AcceptChanges("dtSalesAll")
+
+f.ODBC.Connection!conx.OpenCompanyConnection
+
+f.Intrinsic.String.Build("select rtrim(ID_VALUE) FROM GCG_6547_USER_FIELDS where USER_FIELD = '{0}' and ID_TYPE <> 'L'",v.Local.sRep,v.Local.sSQL)
+f.ODBC.Connection!conx.ExecuteandReturn(v.Local.sSQL,v.Local.sRet)
+
+f.ODBC.Connection!conx.Close
+
+f.Intrinsic.String.Split(v.Local.sRet,"#$#",v.Local.sRet)
+
+f.Intrinsic.Control.For(v.Local.i,0,v.Local.sRet.UBound,1)
+
+	f.Intrinsic.Control.If(v.Local.i,=,0,and,v.Local.sRet(v.Local.i),<>,"")
+	
+		f.Data.DataTable.SetValue("dtSalesAll",v.Args.RowIndex,"COM_ID",v.Local.sRet(v.Local.i))
+		
+	f.Intrinsic.Control.Else
+	
+		f.Data.DataTable.AddRow("dtSalesAll","INVOICE",v.DataTable.dtSalesAll(v.Global.iIndex).INVOICE!FieldVal,"ORDER_NO",v.DataTable.dtSalesAll(v.Global.iIndex).ORDER_NO!FieldVal,"ORDER_LINE",v.DataTable.dtSalesAll(v.Global.iIndex).ORDER_LINE!FieldVal,"H_USER_1",v.DataTable.dtSalesAll(v.Global.iIndex).H_USER_1!FieldVal,"H_USER_2",v.DataTable.dtSalesAll(v.Global.iIndex).H_USER_2!FieldVal,"H_USER_3",v.DataTable.dtSalesAll(v.Global.iIndex).H_USER_3!FieldVal,"H_USER_4",v.Local.sRep,"SALESPERSON",v.DataTable.dtSalesAll(v.Global.iIndex).SALESPERSON!FieldVal,"CUSTOMER",v.DataTable.dtSalesAll(v.Global.iIndex).CUSTOMER!FieldVal,"NAME_CUSTOMER",v.DataTable.dtSalesAll(v.Global.iIndex).NAME_CUSTOMER!FieldVal,"CUSTOMER_PO",v.DataTable.dtSalesAll(v.Global.iIndex).CUSTOMER_PO!FieldVal,"DATE_ORDER",v.DataTable.dtSalesAll(v.Global.iIndex).DATE_ORDER!FieldVal,"DATE_INVOICE",v.DataTable.dtSalesAll(v.Global.iIndex).DATE_INVOICE!FieldVal,"PART",v.DataTable.dtSalesAll(v.Global.iIndex).PART!FieldVal,"DESCRIPTION",v.DataTable.dtSalesAll(v.Global.iIndex).DESCRIPTION!FieldVal,"QTY_SHIPPED",v.DataTable.dtSalesAll(v.Global.iIndex).QTY_SHIPPED!FieldVal,"PRICE",v.DataTable.dtSalesAll(v.Global.iIndex).PRICE!FieldVal,"EXTENSION",v.DataTable.dtSalesAll(v.Global.iIndex).EXTENSION!FieldVal,"USER_ID",v.Caller.User,"TERMINAL",v.Caller.Terminal,"COM_ID",v.Local.sRet(v.Local.i))
+	
+	f.Intrinsic.Control.EndIf
+	
+f.Intrinsic.Control.Next(v.Local.i)
+
+f.Data.DataTable.AcceptChanges("dtSalesAll")
+
+f.Intrinsic.Control.CallSub(Dictionary_Load)
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.GsGcSalesNoCom_CellValueChanged.End
+
+Program.Sub.GsGcSalesSP_RowCellClick.Start
+'CREATE ACTIONS WHEN CLICKING BUTTONS IN THE GRID
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.sRET.Declare
+
+f.Intrinsic.Control.If(v.Args.Column,=,"ADD")
+
+	gui.dbSAC..Enabled(false)
+	v.Global.iIndex.Set(v.Args.RowIndex)
+	gui.FieldSelect..Visible(true)
+
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.If(v.Args.Column,=,"DELETE")
+
+	f.Intrinsic.UI.Msgbox("Are you sure you want to delete this row?","WARNING!",4,v.Local.sRET)
+
+	f.Intrinsic.Control.If(v.Local.sRET,=,v.Ambient.MsgBoxYes)
+	
+		f.Data.DataTable.DeleteRow("dtSalesAll",v.Args.RowIndex)
+	
+	f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.GsGcSalesSP_RowCellClick.End
+
+Program.Sub.GsGcSalesDist_CellValueChanged.Start
+'CHANGE USER FIELD VALUE AND UPDATE ALL RELATED FIELDS
+f.Intrinsic.Control.Try
+v.Local.sError.Declare
+
+v.Local.sSQL.Declare
+v.Local.sRet.Declare
+v.Local.sRep.Declare
+v.Local.i.Declare
+
+v.Global.iIndex.Set(v.Args.RowIndex)
+v.Local.sRep.Set(v.DataTable.dtSalesAll(v.Args.RowIndex).H_USER_4!FieldValTrim)
+
+'f.Data.DataTable.AcceptChanges("dtSalesAll")
+
+f.ODBC.Connection!conx.OpenCompanyConnection
+
+f.Intrinsic.String.Build("select rtrim(ID_VALUE) FROM GCG_6547_USER_FIELDS where USER_FIELD = '{0}' and ID_TYPE <> 'L'",v.Local.sRep,v.Local.sSQL)
+f.ODBC.Connection!conx.ExecuteandReturn(v.Local.sSQL,v.Local.sRet)
+
+f.ODBC.Connection!conx.Close
+
+f.Intrinsic.String.Split(v.Local.sRet,"#$#",v.Local.sRet)
+
+f.Intrinsic.Control.For(v.Local.i,0,v.Local.sRet.UBound,1)
+
+	f.Intrinsic.Control.If(v.Local.i,=,0,and,v.Local.sRet(v.Local.i),<>,"")
+	
+		f.Data.DataTable.SetValue("dtSalesAll",v.Args.RowIndex,"COM_ID",v.Local.sRet(v.Local.i))
+		
+	f.Intrinsic.Control.Else
+	
+		f.Data.DataTable.AddRow("dtSalesAll","INVOICE",v.DataTable.dtSalesAll(v.Global.iIndex).INVOICE!FieldVal,"ORDER_NO",v.DataTable.dtSalesAll(v.Global.iIndex).ORDER_NO!FieldVal,"ORDER_LINE",v.DataTable.dtSalesAll(v.Global.iIndex).ORDER_LINE!FieldVal,"H_USER_1",v.DataTable.dtSalesAll(v.Global.iIndex).H_USER_1!FieldVal,"H_USER_2",v.DataTable.dtSalesAll(v.Global.iIndex).H_USER_2!FieldVal,"H_USER_3",v.DataTable.dtSalesAll(v.Global.iIndex).H_USER_3!FieldVal,"H_USER_4",v.Local.sRep,"SALESPERSON",v.DataTable.dtSalesAll(v.Global.iIndex).SALESPERSON!FieldVal,"CUSTOMER",v.DataTable.dtSalesAll(v.Global.iIndex).CUSTOMER!FieldVal,"NAME_CUSTOMER",v.DataTable.dtSalesAll(v.Global.iIndex).NAME_CUSTOMER!FieldVal,"CUSTOMER_PO",v.DataTable.dtSalesAll(v.Global.iIndex).CUSTOMER_PO!FieldVal,"DATE_ORDER",v.DataTable.dtSalesAll(v.Global.iIndex).DATE_ORDER!FieldVal,"DATE_INVOICE",v.DataTable.dtSalesAll(v.Global.iIndex).DATE_INVOICE!FieldVal,"PART",v.DataTable.dtSalesAll(v.Global.iIndex).PART!FieldVal,"DESCRIPTION",v.DataTable.dtSalesAll(v.Global.iIndex).DESCRIPTION!FieldVal,"QTY_SHIPPED",v.DataTable.dtSalesAll(v.Global.iIndex).QTY_SHIPPED!FieldVal,"PRICE",v.DataTable.dtSalesAll(v.Global.iIndex).PRICE!FieldVal,"EXTENSION",v.DataTable.dtSalesAll(v.Global.iIndex).EXTENSION!FieldVal,"USER_ID",v.Caller.User,"TERMINAL",v.Caller.Terminal,"COM_ID",v.Local.sRet(v.Local.i))
+	
+	f.Intrinsic.Control.EndIf
+	
+f.Intrinsic.Control.Next(v.Local.i)
+
+f.Data.DataTable.AcceptChanges("dtSalesAll")
+
+f.Intrinsic.Control.CallSub(Dictionary_Load)
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.GsGcSalesDist_CellValueChanged.End
+
+Program.Sub.GsGcSalesDist_RowCellClick.Start
+'CREATE ACTIONS WHEN CLICKING HYPERLINKS IN THE GRID
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.sRET.Declare
+
+f.Intrinsic.Control.If(v.Args.Column,=,"ADD")
+
+	gui.dbSAC..Enabled(false)
+	v.Global.iIndex.Set(v.Args.RowIndex)
+	gui.FieldSelect..Visible(true)
+
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.If(v.Args.Column,=,"DELETE")
+
+	f.Intrinsic.UI.Msgbox("Are you sure you want to delete this row?","WARNING!",4,v.Local.sRET)
+
+	f.Intrinsic.Control.If(v.Local.sRET,=,v.Ambient.MsgBoxYes)
+	
+		f.Data.DataTable.DeleteRow("dtSalesAll",v.Args.RowIndex)
+		f.Data.DataTable.AcceptChanges("dtSalesAll")
+	
+	f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.GsGcSalesDist_RowCellClick.End
+
+Program.Sub.FieldSelect_UnLoad.Start
+'CLOSE DROPDOWN LIST GENERATED WHEN ADD BUTTON IS CLICKED
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+gui.FieldSelect..Visible(False)
+gui.FieldSelect.ddlUser.Text("")
+gui.dbSAC..Enabled(true)
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.FieldSelect_UnLoad.End
+
+Program.Sub.cmdOk_Click.Start
+'GENERATE NEW RECORD BASED ON VALUE ENTERED IN DROPDOWN WHEN ADD BUTTON IS CLICKED.
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.sSQL.Declare
+v.Local.sRet.Declare
+
+f.ODBC.Connection!conx.OpenCompanyConnection
+
+f.Intrinsic.String.Build("select rtrim(ID_VALUE) FROM GCG_6547_USER_FIELDS where USER_FIELD = '{0}' and ID_TYPE <> 'L'",v.Screen.FieldSelect!ddlUser.Text,v.Local.sSQL)
+f.ODBC.Connection!conx.ExecuteandReturn(v.Local.sSQL,v.Local.sRet)
+
+f.ODBC.Connection!conx.Close
+
+f.Data.DataTable.AddRow("dtSalesAll","INVOICE",v.DataTable.dtSalesAll(v.Global.iIndex).INVOICE!FieldVal,"ORDER_NO",v.DataTable.dtSalesAll(v.Global.iIndex).ORDER_NO!FieldVal,"ORDER_LINE",v.DataTable.dtSalesAll(v.Global.iIndex).ORDER_LINE!FieldVal,"H_USER_1",v.DataTable.dtSalesAll(v.Global.iIndex).H_USER_1!FieldVal,"H_USER_2",v.DataTable.dtSalesAll(v.Global.iIndex).H_USER_2!FieldVal,"H_USER_3",v.DataTable.dtSalesAll(v.Global.iIndex).H_USER_3!FieldVal,"H_USER_4",v.Screen.FieldSelect!ddlUser.Text,"SALESPERSON",v.DataTable.dtSalesAll(v.Global.iIndex).SALESPERSON!FieldVal,"CUSTOMER",v.DataTable.dtSalesAll(v.Global.iIndex).CUSTOMER!FieldVal,"NAME_CUSTOMER",v.DataTable.dtSalesAll(v.Global.iIndex).NAME_CUSTOMER!FieldVal,"CUSTOMER_PO",v.DataTable.dtSalesAll(v.Global.iIndex).CUSTOMER_PO!FieldVal,"DATE_ORDER",v.DataTable.dtSalesAll(v.Global.iIndex).DATE_ORDER!FieldVal,"DATE_INVOICE",v.DataTable.dtSalesAll(v.Global.iIndex).DATE_INVOICE!FieldVal,"PART",v.DataTable.dtSalesAll(v.Global.iIndex).PART!FieldVal,"DESCRIPTION",v.DataTable.dtSalesAll(v.Global.iIndex).DESCRIPTION!FieldVal,"QTY_SHIPPED",v.DataTable.dtSalesAll(v.Global.iIndex).QTY_SHIPPED!FieldVal,"PRICE",v.DataTable.dtSalesAll(v.Global.iIndex).PRICE!FieldVal,"EXTENSION",v.DataTable.dtSalesAll(v.Global.iIndex).EXTENSION!FieldVal,"USER_ID",v.Caller.User,"TERMINAL",v.Caller.Terminal,"COM_ID",v.Local.sRet)
+f.Intrinsic.Control.CallSub(Dictionary_Load)
+f.Intrinsic.Control.CallSub(FieldSelect_UnLoad)
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdOk_Click.End
+
+Program.Sub.Dictionary_Load.Start
+'POPULATE DICTIONARY COLUMNS
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+f.ODBC.Connection!conx.OpenCompanyConnection
+
+F.Data.Dictionary.CreateFromSQL("TYPE","conx","select rtrim(USER_FIELD) as USER_4, ID_TYPE FROM GCG_6547_USER_FIELDS")
+f.Data.Dictionary.SetDefaultReturn("TYPE","")
+f.Data.DataTable.FillFromDictionary("dtSalesAll","TYPE","H_USER_4","COM_TYPE")
+f.Data.Dictionary.Close("TYPE")
+
+f.Data.Dictionary.CreateFromSQL("RATE","conx","select rtrim(CUSTOMER)+rtrim(DISTRIBUTOR)+rtrim(SURGEON) as RATE_KEY, COM_RATE from GCG_6547_COMMISSION_RATES")
+f.Data.Dictionary.SetDefaultReturn("RATE","0")
+f.Data.DataTable.FillFromDictionary("dtSalesAll","RATE","RATE_KEY","RATE_SPEC")
+f.Data.Dictionary.Close("RATE")
+
+f.Data.Dictionary.CreateFromSQL("RATE","conx","select rtrim(CUSTOMER)+rtrim(DISTRIBUTOR) as RATE_KEY_ANY, COM_RATE from GCG_6547_COMMISSION_RATES where rtrim(SURGEON) = ''")
+f.Data.Dictionary.SetDefaultReturn("RATE","0")
+f.Data.DataTable.FillFromDictionary("dtSalesAll","RATE","RATE_KEY_ANY","RATE_ANY")
+f.Data.Dictionary.Close("RATE")
+
+F.Data.Dictionary.CreateFromSQL("NAME","conx","select rtrim(ID) as SALESPERSON, rtrim(NAME) AS NAME_SALESPERSON FROM V_SALESPERSONS")
+f.Data.Dictionary.SetDefaultReturn("NAME","")
+f.Data.DataTable.FillFromDictionary("dtSalesAll","NAME","SALESPERSON","NAME_SALESPERSON")
+f.Data.Dictionary.Close("NAME")
+
+f.ODBC.Connection!conx.Close
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.Dictionary_Load.End
+
+Program.Sub.cmdSave_Click.Start
+'SAVE USER ENTERED DATA TO CUSTOM BI TABLE FOR PRINTING OR OPENING A RUN AT A LATER DATE.
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.i.Declare
+v.Local.iSeq.Declare
+v.Local.sSQL.Declare
+
+gui.dbSAC..Enabled(false)
+f.Intrinsic.UI.InvokeWaitDialog("Please Wait...Saving...")
+
+f.Data.DataTable.AddColumn("dtSalesAll","DATE_PRINT","date")
+f.Data.DataTable.SetValue("dtSalesAll",-1,"DATE_PRINT",v.Ambient.Date)
+f.Data.DataTable.AddColumn("dtSalesAll","BI_SEQ","float")
+
+f.Intrinsic.Control.For(v.Local.i,0,v.DataTable.dtSalesAll.RowCount--,1)
+
+	f.Intrinsic.Math.Add(v.Local.i,1,v.Local.iSeq)
+	f.Data.DataTable.SetValue("dtSalesAll",v.Local.i,"BI_SEQ",v.Local.iSeq)
+	
+f.Intrinsic.Control.Next(v.Local.i)
+
+f.ODBC.Connection!conx.OpenCompanyConnection
+
+f.Intrinsic.String.Build("Delete from GCG_6547_COMM_BI where USER_ID = '{0}' and TERMINAL = '{1}'",v.Caller.User,v.Caller.Terminal,v.Local.sSQL)
+f.ODBC.Connection!conx.Execute(v.Local.sSQL)
+
+f.Data.DataTable.SaveToDB("dtSalesAll","conx","GCG_6547_COMM_BI","USER_ID*!*TERMINAL*!*BI_SEQ",7,"USER_ID@!@USER_ID*!*TERMINAL@!@TERMINAL*!*BI_SEQ@!@BI_SEQ*!*DATE_PRINT@!@DATE_PRINT*!*INVOICE@!@INVOICE*!*ORDER_NO@!@ORDER_NO*!*ORDER_LINE@!@ORDER_LINE*!*H_USER_1@!@H_USER_1*!*H_USER_2@!@H_USER_2*!*H_USER_3@!@H_USER_3*!*H_USER_4@!@H_USER_4*!*SALESPERSON@!@SALESPERSON*!*NAME_SALESPERSON@!@NAME_SALESPERSON*!*CUSTOMER@!@CUSTOMER*!*NAME_CUSTOMER@!@NAME_CUSTOMER*!*CUSTOMER_PO@!@CUSTOMER_PO*!*DATE_ORDER@!@DATE_ORDER*!*DATE_INVOICE@!@DATE_INVOICE*!*PART@!@PART*!*DESCRIPTION@!@DESCRIPTION*!*QTY_SHIPPED@!@QTY_SHIPPED*!*PRICE@!@PRICE*!*EXTENSION@!@EXTENSION*!*RATE@!@RATE*!*COMMISSION@!@COMMISSION*!*COM_TYPE@!@COM_TYPE*!*COM_ID@!@COM_ID")
+
+f.ODBC.Connection!conx.Close
+
+f.Data.DataTable.RemoveColumn("dtSalesAll","DATE_PRINT")
+f.Data.DataTable.RemoveColumn("dtSalesAll","BI_SEQ")
+
+f.Intrinsic.UI.CloseWaitDialog
+gui.dbSAC..Enabled(true)
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.cmdSave_Click.End
+
+Program.Sub.Link_Check.Start
+'CYCLE THROUGH TABLE FOR ANY LINKED RECORDS AND DUPLICATE THEM ACCORDINGLY
+f.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+v.Local.sSQL.Declare
+v.Local.sRet.Declare
+v.Local.i.Declare
+
+f.ODBC.Connection!conx.OpenCompanyConnection
+
+f.Intrinsic.Control.For(v.Local.i,0,v.DataTable.dtSalesAll.RowCount--,1)
+
+	f.Intrinsic.Control.If(v.DataTable.dtSalesAll(v.Local.i).COM_TYPE!FieldVal,=,"L")
+	
+		f.Intrinsic.String.Build("select rtrim(ID_VALUE) FROM GCG_6547_USER_FIELDS where USER_FIELD = '{0}' and ID_TYPE <> 'L'",v.DataTable.dtSalesAll(v.Local.i).COM_ID.FieldValTrim,v.Local.sSQL)
+		f.ODBC.Connection!conx.ExecuteandReturn(v.Local.sSQL,v.Local.sRet)
+		f.Data.DataTable.SetValue("dtSalesAll",v.Local.i,"H_USER_4",v.DataTable.dtSalesAll(v.Local.i).COM_ID.FieldValTrim)
+		f.Data.DataTable.SetValue("dtSalesAll",v.Local.i,"COM_ID",v.Local.sRet)
+		
+	f.Intrinsic.Control.EndIf
+	
+f.Intrinsic.Control.Next(v.Local.i)
+
+f.ODBC.Connection!conx.Close
+
+f.Intrinsic.Control.Catch
+	f.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	f.Intrinsic.UI.Msgbox(V.Local.sError)
+	f.Intrinsic.Control.End 
+f.Intrinsic.Control.EndTry
+Program.Sub.Link_Check.End
